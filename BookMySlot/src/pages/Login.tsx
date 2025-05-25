@@ -1,0 +1,86 @@
+
+
+
+
+const Login = () => {
+  return (
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="flex flex-col md:flex-row w-full max-w-5xl bg-white rounded-2xl shadow-md overflow-hidden">
+    
+        <div className="flex-1 p-8 flex flex-col justify-center">
+          <h1 className="text-4xl font-bold text-gray-800 text-center mb-2">
+            Welcome Back
+          </h1>
+          <p className="text-sm text-gray-600 text-center mb-6">
+            Connect with us to make bookings!
+          </p>
+
+          <form className="flex flex-col gap-6 items-center">
+            <div>
+              <label className="block font-semibold text-gray-700 mb-1">Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                className="w-full px-6 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="block font-semibold text-gray-700 mb-1">Password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="••••••••"
+                className="w-full px-6 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 outline-none"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-[40%] py-3 bg-blue-500 text-white rounded-full font-semibold hover:bg-blue-600 transition">
+              Login
+            </button>
+          </form>
+
+          <p className="text-red-500 text-center text-sm mt-2">
+            {/* errorMsg can go here */}
+          </p>
+
+          {/* Divider */}
+          <div className="text-center my-4 text-gray-400 text-xs">— or —</div>
+
+          {/* Google Sign-In */}
+         <div className="flex items-center justify-center gap-4">
+           <button className="flex items-center justify-center gap-3 w-[40%] py-3 border border-gray-300 rounded-full hover:bg-gray-100 transition">
+            <img src="/images/google.svg" className="w-6 h-6" alt="Google" />
+            <span className="text-sm font-medium text-gray-700">
+              Sign in with Google
+            </span>
+          </button>
+         </div>
+
+          <div className="text-center mt-6 text-sm">
+            <span className="text-gray-600">Don't have an account?</span>
+            <a className="text-blue-500 ml-1 hover:underline cursor-pointer">
+              Register
+            </a>
+          </div>
+        </div>
+
+        {/* Image Section */}
+        {/* <div className="hidden md:flex md:flex-1 items-center justify-center bg-gray-100 p-4">
+          <img
+            src="/images/loginPic.jpg"
+            className="rounded-2xl max-h-[500px] object-cover"
+            alt="Stadium Booking"
+          />
+        </div> */}
+    </div>
+  </div>
+
+
+  )
+}
+
+export default Login
