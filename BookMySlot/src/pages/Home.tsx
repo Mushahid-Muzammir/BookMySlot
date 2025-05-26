@@ -1,74 +1,44 @@
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Bg from "../assets/bg1.jpg";
+
 
 const Home = () => {
   return (
-        <div className="max-w-full h-[auto] relative bg-gradient-to-r from-[#F8F9FA] to-[#E3F2FD]">
+        <div className="w-full h-[auto]  bg-gradient-to-r from-[#F8F9FA] to-[#E3F2FD]">
+            <div className="bg-[url('./assets/bg3.jpg')] w-full h-screen flex-col items-center justify-center bg-cover">
+                        <Header />
 
-            <div className="relative w-full h-screen flex items-center justify-center bg-cover bg-center">
-                <div className="w-full h-screen flex items-center justify-center bg-black/50">
+                <div className="w-full h-screen flex items-center justify-center">
                     <div className="text-center space-y-4 px-6 md:px-12">
-                        <p className="text-5xl md:text-7xl font-bold text-white"> content.title </p>
-                        <p className="text-lg md:text-3xl font-medium text-[#FFD89B]"> content.description </p>
+                        <p className="text-5xl md:text-6xl font-bold text-white"> Book Your Game Now! </p>
+                        <p className="text-lg md:text-3xl font-semibold text-[#DDEB9D]"> Instantly book courts and enjoy the best indoor sports experiences around you. </p>
                     </div>
                 </div>
             </div>
 
-            <div className="w-full h-auto my-12">
+            <div className="w-full h-auto my-12 px-6">
                 <div className="w-full h-[120px] py-9">
                     <p className="text-5xl text-center font-bold text-[#176B87]">
-                        Redefining Confidence Through Beauty Expertise
-                    </p>
+                        Get Your Game Session Now
+                     </p>
                 </div>
 
-                <div id="hero" className="flex flex-row justify-center gap-12 my-12 ">
-                    <div className="w-1/3">
-                        <div className="flex flex-row">
+                <div id="hero" className="flex flex-row justify-center gap-12 my-12">
+                    <div className="w-1/2">                          
                             <div className="flex flex-col">
-                                <img src="images/advert1.png" className="w-[211px] h-auto" />
-                                <img src="images/advert5.jpg" className="w-[211px] h-auto" />
+                                <img src={Bg} className="w-full h-auto rounded-lg" />
                             </div>
-                            <div className="flex flex-col">
-                                <img src="images/advert2.png" className="w-[180px]" />
-                                <img src="images/advert3.png" className="w-[240px] h-auto" />
-                            </div>
-                            <div className="flex flex-col">
-                                <img src="images/advert7.jpg" className="w-[240px] h-auto" />
-                                <img src="images/advert6.jpg" className="w-[211px] h-auto" />
-                            </div>
-                        </div>
                     </div>
 
                     <div className=" w-1/2 flex flex-col justify-start space-y-12">
                         <p className=" w-[80%] text-xl text-[#565656] mt-4">
-                            Indulge in expert services tailored for both men and women. our skilled professionals ensure you step out feeling confident, refreshed, and radiant.
-                            Elevate your grooming routine with us.
+                            We makes it easy to find and book the perfect court for your needs.
+                            Say goodbye to phone calls and waiting lines — with just a few clicks, your game is on!
                         </p>
                         <button className="w-[60%] text-[20px] font-bold bg-[#22577E] text-white py-4 px-10 hover:bg-[#546c90]">
                             Book Your Session
                         </button>
-                    </div>
-                </div>
-            </div>
-
-            <div className="w-full py-12 px-12 my-12 rounded-lg">
-                <div className=" mx-auto flex flex-col lg:flex-row items-center gap-12">
-
-                    <div id="sp_text" className="w-full lg:w-1/2 flex flex-col space-y-6 text-center lg:text-left">
-                        <h1 className="text-5xl font-extrabold text-[#176B87] leading-tight">
-                            Make Your Special Day Unforgettable
-                        </h1>
-                        <p className="text-lg text-[#565656] mt-4">
-                            From stunning bridal makeovers to glamorous party styling, our expert stylists create your perfect look.
-                            Let us make your wedding, engagement, or special event truly magical!
-                        </p>
-                        <div className="mt-12">
-                            <button className="bg-[#176B87] text-white px-12 py-5 text-lg font-semibold ">
-                                Make a Special Booking
-                            </button>
-                        </div>
-                    </div>
-
-                    <div id="sp_image" className="w-full lg:w-1/2">
-                        <img src="images/hero2.png" alt="Bridal Beauty" className="w-full h-auto object-cover"/>
                     </div>
                 </div>
             </div>
@@ -78,8 +48,7 @@ const Home = () => {
                     <p className="text-3xl text-center font-semibold text-black">
                     </p>
                     <p className="text-5xl text-center font-bold text-[#176B87]">
-                        Our Finest Selection of
-                        Beauty Products
+                        Our Finest Selection of Sport Items
                     </p>
                 </div>
                 <p className="w-[100%] text-2xl mt-8 font-semibold text-center text-[#565656]">
@@ -126,9 +95,9 @@ const Home = () => {
                                 </p>
                             </div>
                         </div>
+                </div>
             </div>
-            </div>
-            
+        <Footer />
         </div>
   )
 }
