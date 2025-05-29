@@ -1,6 +1,14 @@
 @BookMySlot_HostAddress = http://localhost:5275
 
-GET {{BookMySlot_HostAddress}}/weatherforecast/
+GET {{BookMySlot_HostAddress}}/api/users
 Accept: application/json
 
 ###
+POST {{BookMySlot_HostAddress}}/api/users
+Content-Type: application/json
+{
+    "id": 1,
+    "name": "Mushahid",
+    "email": "mushahidmuzammir@gmail.com",
+    "password": "12345"
+}

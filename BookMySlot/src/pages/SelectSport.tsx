@@ -11,16 +11,13 @@ const SelectSport = () => {
 
             <div className="flex flex-wrap justify-center gap-8 mt-4">
                 <div className="w-[400px] h-auto rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200">
-                    <img alt="sport_name" className="w-full h-48 object-cover"/>
-            
+                    <img alt="sport_name" className="w-full h-48 object-cover"/>           
                     <div className="p-4 text-left">
                         <p className="text-xl font-semibold text-gray-900"> sport.sport_name </p>
-                    </div>
-            
+                    </div>          
                     <div className="w-full flex justify-center pb-4">
-                        <button 
-                        className ="w-[80%] py-2 rounded-lg bg-blue-600 text-white text-lg font-semibold transition-all duration-300 hover:bg-blue-700">                
-                        Select Sport
+                        <button className ="w-[80%] py-2 rounded-lg bg-blue-600 text-white text-lg font-semibold transition-all duration-300 hover:bg-blue-700">                
+                            Select Sport
                         </button>
                     </div>         
                 </div>                  
