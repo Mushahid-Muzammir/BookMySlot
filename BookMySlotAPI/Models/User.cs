@@ -17,5 +17,8 @@ namespace BookMySlot.Models
         [Required]
         required public string Password { get; set; }
 
+        [Required]
+        required public string Role { get; set; } 
+
     }
 }

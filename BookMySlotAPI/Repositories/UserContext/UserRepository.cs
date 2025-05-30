@@ -1,8 +1,9 @@
 ﻿using BookMySlot.Data;
 using BookMySlot.Models;
+using BookMySlot.Repositories.UserContext;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookMySlot.Repositories
+namespace BookMySlot.Repositories.UserContext
 {
     public class UserRepository : IUserRepository
     {

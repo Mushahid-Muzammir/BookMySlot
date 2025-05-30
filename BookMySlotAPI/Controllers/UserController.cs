@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using BookMySlot.Models;
 using Microsoft.Data.SqlClient;
-using BookMySlot.Repositories;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Threading.Tasks;
+using BookMySlot.Repositories.User;
 
 namespace BookMySlot.Controllers
 {

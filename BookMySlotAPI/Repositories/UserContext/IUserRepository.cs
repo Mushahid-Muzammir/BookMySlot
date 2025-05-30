@@ -1,6 +1,6 @@
 ﻿using BookMySlot.Models;
 
-namespace BookMySlot.Repositories
+namespace BookMySlot.Repositories.UserContext
 {
     public interface IUserRepository
     {
