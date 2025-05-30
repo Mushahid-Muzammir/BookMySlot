@@ -23,7 +23,7 @@ namespace BookMySlot.Repositories.UserContext
             return await _context.Users.FindAsync(id);
         }
 
-        public async Task<User> AddAsync(User user)
+        public async Task<User> AddUserAsync(User user)
         {
             _context.Users.Add(user);
             await _context.SaveChangesAsync();

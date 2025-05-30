@@ -2,11 +2,11 @@
 
 namespace BookMySlot.Controllers
 {
-    public class SportController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class SportController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+
+        
     }
 }

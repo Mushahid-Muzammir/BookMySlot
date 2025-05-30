@@ -21,8 +21,10 @@ namespace BookMySlot.Controllers
         // GET: api/users
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
-            => Ok(await _repo.GetAllUsersAsync());
+        {
+            return Ok(await _repo.GetAllUsersAsync());
 
+        }
         // GET: api/users/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
@@ -35,7 +37,7 @@ namespace BookMySlot.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> AddUser([FromBody] User user)
         {
-            var createdUser = await _repo.AddAsync(user);
+            var createdUser = await _repo.AddUserAsync(user);
             //return Ok(createdUser);
             return CreatedAtAction(nameof(GetUser), new { id = createdUser.Id }, createdUser);
 
