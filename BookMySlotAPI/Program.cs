@@ -2,7 +2,7 @@
 
 
 using BookMySlot.Data;
-using BookMySlot.Repositories.User;
+using BookMySlot.Repositories.UserContext;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

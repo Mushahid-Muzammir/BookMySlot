@@ -4,7 +4,7 @@ using BookMySlot.Repositories.UserContext;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookMySlot.Repositories.UserContext
-{
+{ 
     public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _context;
@@ -13,12 +13,12 @@ namespace BookMySlot.Repositories.UserContext
         {
             _context = context;
         }
-        public async Task<IEnumerable<User>> GetAllAsync()
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
             return await _context.Users.ToListAsync();
         }
 
-        public async Task<User?> GetByIdAsync(int id)
+        public async Task<User?> GetUserByIdAsync(int id)
         {
             return await _context.Users.FindAsync(id);
         }

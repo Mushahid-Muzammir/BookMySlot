@@ -3,7 +3,7 @@ using BookMySlot.Models;
 using Microsoft.Data.SqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Threading.Tasks;
-using BookMySlot.Repositories.User;
+using BookMySlot.Repositories.UserContext;
 
 namespace BookMySlot.Controllers
 {
@@ -21,13 +21,13 @@ namespace BookMySlot.Controllers
         // GET: api/users
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
-            => Ok(await _repo.GetAllAsync());
+            => Ok(await _repo.GetAllUsersAsync());
 
         // GET: api/users/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
-            var user = await _repo.GetByIdAsync(id);
+            var user = await _repo.GetUserByIdAsync(id);
             return user is null ? NotFound() : Ok(user);
         }
 
