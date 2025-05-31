@@ -1,8 +1,12 @@
-
-
-
+import { useNavigate } from "react-router-dom"
 
 const Login = () => {
+const navigate = useNavigate();
+
+const handleNavigation = (path : string) => {
+  navigate(path);
+}; 
+
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="flex flex-col md:flex-row w-full max-w-5xl bg-white rounded-2xl shadow-md overflow-hidden">
@@ -12,7 +16,7 @@ const Login = () => {
             Welcome Back
           </h1>
           <p className="text-sm text-gray-600 text-center mb-6">
-            Connect with us to make bookings!
+            Connect with us to make your indoor bookings!
           </p>
 
           <form className="flex flex-col gap-6 items-center">
@@ -37,7 +41,8 @@ const Login = () => {
             </div>
 
             <button
-              type="submit"
+              type="button"
+              onClick={() => handleNavigation("/home")}
               className="w-[40%] py-3 bg-blue-500 text-white rounded-full font-semibold hover:bg-blue-600 transition">
               Login
             </button>
@@ -62,7 +67,7 @@ const Login = () => {
 
           <div className="text-center mt-6 text-sm">
             <span className="text-gray-600">Don't have an account?</span>
-            <a className="text-blue-500 ml-1 hover:underline cursor-pointer">
+            <a onClick={() => handleNavigation("/register")} className="text-blue-500 ml-1 hover:underline cursor-pointer">
               Register
             </a>
           </div>

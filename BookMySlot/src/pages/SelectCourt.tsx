@@ -1,7 +1,9 @@
+import Header from "../components/Header"
 
 const SelectCourt = () => {
   return (
     <div className="w-full h-auto min-h-screen">
+        <Header />
         <div className="flex flex-col md:flex-row">
             <div className="flex-1 px-6">
                 <div className="w-full py-8">

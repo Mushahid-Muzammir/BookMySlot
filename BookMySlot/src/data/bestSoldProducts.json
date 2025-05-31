@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Nike Air Zoom Pegasus 40",
+    "description": "High-performance running shoes built for comfort and speed.",
+    "selling_price": 6120.00,
+    "imageUrl": "shoe"
+  },
+  {
+    "id": 2,
+    "name": "Adidas Predator Edge 3",
+    "description": "Engineered football boots for precision and power on the pitch.",
+    "selling_price": 7100.00,
+    "imageUrl": "boot"
+  },
+  {
+    "id": 3,
+    "name": "Yonex Nanoflare 1000Z",
+    "description": "Elite-level badminton racket designed for explosive speed and control.",
+    "selling_price": 3230.00,
+    "imageUrl": "racket"
+  }
+]

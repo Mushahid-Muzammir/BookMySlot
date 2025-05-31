@@ -1,0 +1,8 @@
+
+[
+    { "name": "Cricket", "image": "cricket1" },
+    { "name": "Football", "image": "football1" },
+    { "name": "Table Tennis", "image": "tt1" },
+    { "name": "Basketball", "image": "basketball1" },
+    { "name": "Volleyball", "image": "volleyball1" }
+]
