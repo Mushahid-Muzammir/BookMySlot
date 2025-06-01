@@ -25,12 +25,41 @@ const SelectCourt = () => {
                             placeholder="Search for a court..."/>
                     </div>
 
-                    <div className="w-full py-4">
-                        <div className="flex flex-col gap-6 w-max px-4">
+                    <div className="w-full py-4 px-6">
+                        <p className="text-xl font-semibold text-[#22577E] mb-4">
+                            🔥Popular Courts Available
+                        </p>
+                        <hr className="w-3/4 border-b border-gray-300 mb-4" />
+                     <div className="w-full overflow-x-auto py-4">
+                        <div className="flex flex-row gap-6 min-w-max">
+                            {courts.map((court, index) => (
+                            <div 
+                                key={index}
+                                className="flex flex-col bg-white border border-gray-300 rounded-lg p-3 shadow-md transition-all hover:shadow-lg hover:scale-105 w-[250px] flex-shrink-0"
+                            >
+                                <img src={courtsImage} alt="Court" className="w-full h-28 object-cover border border-gray-200 rounded" />
+                                <p className="text-md font-semibold text-black mt-2">{court.court_name}</p>
+                                <p className="text-sm text-gray-600 mt-1">🪧{court.location}</p>
+                                <p className="text-md font-semibold text-black mt-1">💰 Rs. {court.price} /hr</p>
+                                <button className="mt-3 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all">
+                                Select Court
+                                </button>
+                            </div>
+                            ))}
+                        </div>
+                    </div>
+
+
+
+                        <p className="text-xl font-semibold text-[#22577E] mt-6 mb-2">
+                            Checkout These Courts
+                        </p>
+                        <hr className="w-3/4 border-b border-gray-300 mb-8" />
+                        <div className="flex flex-col gap-8 w-max px-4">
                             {courts.map((court, index) => (
                             <div
                                 key={index}
-                                className="flex flex-row justify-between w-full h-[100px] bg-white border border-gray-300 rounded-lg shadow-md transition-all hover:shadow-lg hover:scale-105">
+                                className="flex flex-around justify-between w-full h-[120px] bg-white border border-gray-300 rounded-lg shadow-md transition-all hover:shadow-lg hover:scale-105">
                                 <img
                                 src={courtsImage}
                                 alt={court.court_name}
@@ -38,21 +67,22 @@ const SelectCourt = () => {
                                 />
 
                                 <div className="flex flex-col justify-between p-2 w-full">
-                                    <div>
-                                        <div className="flex flex-row justify-between items-center">
-                                        <p className="text-md font-semibold text-black">{court.court_name}</p>
-                                        <p className="text-sm font-medium text-black">Rs. {court.price} /hr</p>
+                                    <div className="flex flex-row justify-between items-start">
+                                        <div className="flex flex-col">
+                                            <p className="text-md font-semibold text-black">{court.court_name}</p>
+                                            <p className="text-sm text-gray-600 mt-1">📍{court.location}</p>
                                         </div>
-                                        <hr className="my-1"/>
-                                        <div className="flex flex-row justify-between items-center">
-                                        <p className="w-2/3 text-sm text-gray-600 mt-1">{court.description}</p>
-                                        <button type="button"
-                                        onClick={() => handleNavigation("/selectDate")}
-                                        className="px-6 py-2 bg-blue-600 text-white text-sm rounded-full hover:bg-blue-700 transition">
-                                        Select Court
+
+                                        <p className="text-md font-semibold text-black whitespace-nowrap">Rs. {court.price} /hr</p>
+                                        </div>
+
+                                    <hr className="my-1"/>
+                                    <div className="flex flex-end justify-end">
+                                        <button className="px-6 py-2 bg-blue-600 text-white text-sm rounded-full hover:bg-blue-700 transition"
+                                        onClick={() => handleNavigation("/selectDate")}>
+                                            Select Court
                                         </button>
-                                        </div>
-                                    </div>                              
+                                    </div>
                                 </div>
                             </div>
                             ))}
