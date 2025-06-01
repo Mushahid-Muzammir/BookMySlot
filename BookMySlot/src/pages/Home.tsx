@@ -10,9 +10,15 @@ import volleyball1 from "../assets/volleyball1.jpg";
 import shoe from "../assets/shoe.jpg";
 import racket from "../assets/racket.jpg";
 import boot from "../assets/boot.jpg";
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
+
+    const navigate = useNavigate();
+    const handleNavigate = (path : string) => {
+        navigate(path);
+    };
 
 const sportImages: Record<string, string> = {
   cricket1,
@@ -53,13 +59,16 @@ const productImages: Record<string, string> = {
                 <div id="sports" className="max-w-6xl mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {sports.map((sport, index) => (
-                    <div
+                    <a
                         key={index}
                         className="relative h-64 rounded-lg overflow-hidden group cursor-pointer hover:scale-110 transition-transform duration-300"
+                        onClick={() => handleNavigate(`/selectCourt`)}
                         style={{
                         backgroundImage: `url(${sportImages[sport.image]})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center'
+                        
+                        
                         }}>
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/70 transition duration-300" />
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -67,7 +76,7 @@ const productImages: Record<string, string> = {
                             {sport.name}
                             </h3>
                         </div>
-                    </div>
+                    </a>
                     ))}
                 </div>
             </div>
