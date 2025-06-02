@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookMySlot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6afb5e8d7f9df43e44f08b4db2a827411871da89")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4c6b12e7a8935b0c9881f75ac2ff68a768db714")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookMySlot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookMySlot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

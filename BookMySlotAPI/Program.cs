@@ -40,7 +40,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// ✅ Correct usage of policy name
+// Correct usage of policy name
 app.UseCors("AllowReactApp");
 
 app.UseHttpsRedirection();

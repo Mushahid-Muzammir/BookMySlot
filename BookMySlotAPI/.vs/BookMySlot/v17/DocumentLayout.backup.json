@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\bookmyslot.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:bookmyslot.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\controllers\\stadiumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:controllers\\stadiumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\repositories\\stadiumcontext\\stadiumrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:repositories\\stadiumcontext\\stadiumrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\repositories\\stadiumcontext\\istadiumrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:repositories\\stadiumcontext\\istadiumrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\repositories\\sportcontext\\sportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:repositories\\sportcontext\\sportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\repositories\\usercontext\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:repositories\\usercontext\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\repositories\\sportcontext\\isportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:repositories\\sportcontext\\isportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\controllers\\courtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:controllers\\courtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\controllers\\sportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,79 +47,92 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "StadiumRepository.cs",
-              "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\StadiumContext\\StadiumRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\StadiumContext\\StadiumRepository.cs",
-              "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\StadiumContext\\StadiumRepository.cs",
-              "RelativeToolTip": "Repositories\\StadiumContext\\StadiumRepository.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T14:41:18.962Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IStadiumRepository.cs",
-              "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\StadiumContext\\IStadiumRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\StadiumContext\\IStadiumRepository.cs",
-              "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\StadiumContext\\IStadiumRepository.cs",
-              "RelativeToolTip": "Repositories\\StadiumContext\\IStadiumRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T14:39:08.885Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\UserContext\\UserRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\UserContext\\UserRepository.cs",
               "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\UserContext\\UserRepository.cs",
               "RelativeToolTip": "Repositories\\UserContext\\UserRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAA3wCUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T14:26:29.921Z",
+              "WhenOpened": "2025-06-02T08:55:37.977Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SportController.cs",
-              "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Controllers\\SportController.cs",
-              "RelativeDocumentMoniker": "Controllers\\SportController.cs",
-              "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Controllers\\SportController.cs",
-              "RelativeToolTip": "Controllers\\SportController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ISportRepository.cs",
+              "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\SportContext\\ISportRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\SportContext\\ISportRepository.cs",
+              "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\SportContext\\ISportRepository.cs",
+              "RelativeToolTip": "Repositories\\SportContext\\ISportRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T14:01:22.509Z",
+              "WhenOpened": "2025-06-02T08:52:27.056Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "StadiumController.cs",
-              "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Controllers\\StadiumController.cs",
-              "RelativeDocumentMoniker": "Controllers\\StadiumController.cs",
-              "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Controllers\\StadiumController.cs",
-              "RelativeToolTip": "Controllers\\StadiumController.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAA7wDAAAAAAAAAAAAAAAA==",
+              "Title": "SportRepository.cs",
+              "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\SportContext\\SportRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\SportContext\\SportRepository.cs",
+              "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\SportContext\\SportRepository.cs",
+              "RelativeToolTip": "Repositories\\SportContext\\SportRepository.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwCYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T14:01:19.653Z",
+              "WhenOpened": "2025-06-02T08:51:26.782Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BookMySlot.http",
+              "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\BookMySlot.http",
+              "RelativeDocumentMoniker": "BookMySlot.http",
+              "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\BookMySlot.http",
+              "RelativeToolTip": "BookMySlot.http",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-06-02T08:50:30.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CourtController.cs",
+              "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Controllers\\CourtController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CourtController.cs",
+              "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Controllers\\CourtController.cs",
+              "RelativeToolTip": "Controllers\\CourtController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T08:49:57.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SportController.cs",
+              "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Controllers\\SportController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SportController.cs",
+              "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Controllers\\SportController.cs",
+              "RelativeToolTip": "Controllers\\SportController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T08:13:24.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
               "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Controllers\\UserController.cs",
               "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAkwDIAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T14:01:17.822Z",
+              "WhenOpened": "2025-06-02T08:13:18.418Z",
               "EditorCaption": ""
             }
           ]
