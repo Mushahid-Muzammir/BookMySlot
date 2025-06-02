@@ -10,6 +10,8 @@ namespace BookMySlot.Repositories.SportContext
 
         Task<Sport> AddSportAsync(Sport sport);
 
+        Task<Sport> UpdateSportAsync(Sport sport);
+
         Task DeleteSportByIdAsync(int id);
 
     }

@@ -2,7 +2,7 @@
 
 namespace BookMySlot.Controllers
 {
-    public class PlayerController : Controller
+    public class PlayersController : Controller
     {
         public IActionResult Index()
         {

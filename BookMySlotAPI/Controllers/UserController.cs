@@ -1,14 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using BookMySlot.Models;
-using Microsoft.Data.SqlClient;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Threading.Tasks;
 using BookMySlot.Repositories.UserContext;
 
 namespace BookMySlot.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
         private readonly IUserRepository _repo;

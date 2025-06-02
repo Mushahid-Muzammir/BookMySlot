@@ -15,6 +15,6 @@ namespace BookMySlot.Data
 
         public DbSet<Sport> Sports { get; set; }
 
-        public DbSet<Stadium> Stadiums { get; set; }
+        public DbSet<Court> Courts { get; set; }
     }
 }

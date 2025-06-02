@@ -1,8 +1,8 @@
 ﻿namespace BookMySlot.Models
 {
-    public class Stadium
+    public class Court
     {
-        required public int StadiumId { get; set; }
+        required public int CourtId { get; set; }
 
         required public string Name { get; set; }
 

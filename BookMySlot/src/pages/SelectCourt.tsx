@@ -1,8 +1,15 @@
 import courts from "../data/courts.json";
 import courtsImage from "../assets/football2.jpg";
 import { useNavigate } from "react-router-dom";
+import Select from "react-select";
 
 const SelectCourt = () => {
+    const options = [
+    { value: 'daily', label: 'Daily' },
+    { value: 'month', label: 'Current' },
+    { value: 'last+month', label: 'Last Month' },
+    { value: 'year', label: 'Current Year' },
+    ];
 
     const navigate = useNavigate();
     const handleNavigation = (path: string) => {
@@ -13,13 +20,13 @@ const SelectCourt = () => {
     <div className="w-full h-auto min-h-screen">
         <div className="flex flex-col md:flex-row">
             <div className="flex-1 px-6">
-                <div className="w-full py-5">
-                    <p className="text-2xl text-center font-bold text-[#22577E]">
-                    Select Your Preferred Court
-                    </p>
-                </div>
 
-                <div className="relative w-full px-6">   
+                <div className="relative w-full px-6"> 
+                    <div className="flex flex-row gap-2 mt-2 mb-6">
+                        <Select className='w-40' placeholder='Location' options={options}/>
+                        <Select className='w-40' placeholder='Price/hr' options={options}/>
+                        <Select className='w-40' placeholder='Rating' options={options}/>
+                    </div>  
                     <div className="w-full flex justify-center mb-6">
                         <input className="w-3/5 h-10 rounded-lg bg-white border border-gray-300 px-6 outline-none shadow-sm focus:border-blue-500 transition-all"
                             placeholder="Search for a court..."/>

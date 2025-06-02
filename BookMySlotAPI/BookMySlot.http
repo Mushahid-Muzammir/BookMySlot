@@ -7,8 +7,27 @@ Accept: application/json
 POST {{BookMySlot_HostAddress}}/api/users
 Content-Type: application/json
 {
-    "id": 1,
+    "id": 5,
     "name": "Mushahid",
     "email": "mushahidmuzammir@gmail.com",
-    "password": "12345"
+    "password": "12345",
+    "role": "Mesasa"
 }
+
+###
+GET {{BookMySlot_HostAddress}}/api/sports
+Accept: application/json
+
+
+###
+POST {{BookMySlot_HostAddress}}/api/sports
+Content-Type: application/json
+{
+    "name": "Cricket",
+    "imageUrl": "images/Pic.jpg"
+    
+} 
+
+###
+GET {{BookMySlot_HostAddress}}/api/courts
+Accept: application/json

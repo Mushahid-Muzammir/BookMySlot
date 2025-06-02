@@ -6,7 +6,7 @@
 
         required public string Name { get; set; }
 
-        required public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 
     }
 }

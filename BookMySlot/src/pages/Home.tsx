@@ -1,12 +1,9 @@
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import sports from "../data/sports.json";
+import type { Sport } from "../dataType";
+import { getAllSports } from "../services/sportApi";
 import bestSellers from "../data/bestSoldProducts.json";
-import cricket1 from "../assets/cricket1.jpg";
-import football1 from "../assets/football1.jpg";
-import tt1 from "../assets/tt1.jpg";
-import basketball1 from "../assets/basketball1.jpg";
-import volleyball1 from "../assets/volleyball1.jpg";
 import shoe from "../assets/shoe.jpg";
 import racket from "../assets/racket.jpg";
 import boot from "../assets/boot.jpg";
@@ -14,22 +11,25 @@ import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
+    const [sports, setSport] = useState<Sport[]>([]);
+
+    useEffect(() => {
+        getAllSports()
+        .then(setSport)
+        .catch((error) => {
+            console.error("Error fetching sports:", error);
+        });
+    }, []);
 
     const navigate = useNavigate();
     const handleNavigate = (path : string) => {
         navigate(path);
     };
 
-const sportImages: Record<string, string> = {
-  cricket1,
-  football1,
-  tt1,
-  basketball1,
-  volleyball1,
-};
+
 
 const productImages: Record<string, string> = {
-  shoe,
+    shoe,
     racket,
     boot,
 };
@@ -64,10 +64,9 @@ const productImages: Record<string, string> = {
                         className="relative h-64 rounded-lg overflow-hidden group cursor-pointer hover:scale-110 transition-transform duration-300"
                         onClick={() => handleNavigate(`/selectCourt`)}
                         style={{
-                        backgroundImage: `url(${sportImages[sport.image]})`,
+                        backgroundImage: `url(${sport.imageUrl.startsWith("http") ? sport.imageUrl : `${sport.imageUrl}`})`,
                         backgroundSize: 'cover',
-                        backgroundPosition: 'center'
-                        
+                        backgroundPosition: 'center'                       
                         
                         }}>
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/70 transition duration-300" />

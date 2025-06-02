@@ -29,6 +29,13 @@ namespace BookMySlot.Repositories.SportContext
             return sport;
         }
 
+        public async Task<Sport> UpdateSportAsync(Sport sport)
+        {
+            _context.Sports.Update(sport);
+            await _context.SaveChangesAsync();
+            return sport;
+        }
+
         public async Task DeleteSportByIdAsync(int id)
         {
             var sport = await _context.Sports.FindAsync(id);
