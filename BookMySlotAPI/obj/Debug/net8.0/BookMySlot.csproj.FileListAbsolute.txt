@@ -88,3 +88,4 @@ C:\Projects\BookMySlot\BookMySlotAPI\obj\Debug\net8.0\refint\BookMySlot.dll
 C:\Projects\BookMySlot\BookMySlotAPI\obj\Debug\net8.0\BookMySlot.pdb
 C:\Projects\BookMySlot\BookMySlotAPI\obj\Debug\net8.0\BookMySlot.genruntimeconfig.cache
 C:\Projects\BookMySlot\BookMySlotAPI\obj\Debug\net8.0\ref\BookMySlot.dll
+C:\Projects\BookMySlot\BookMySlotAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

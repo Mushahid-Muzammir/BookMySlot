@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import type { Sport } from "../dataType";
-import { getAllSports } from "../services/sportApi";
+import { getAllSports } from "../services/sportService";
 import bestSellers from "../data/bestSoldProducts.json";
 import shoe from "../assets/shoe.jpg";
 import racket from "../assets/racket.jpg";

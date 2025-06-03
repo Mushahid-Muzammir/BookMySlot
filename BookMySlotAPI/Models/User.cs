@@ -15,10 +15,14 @@ namespace BookMySlot.Models
         required public string Email { get; set; }
 
         [Required]
-        required public string Password { get; set; }
+        public string Role { get; set; }
 
         [Required]
-        required public string Role { get; set; } 
+        required public byte[] PasswordHash { get; set; }
+
+        [Required]
+        required public byte[] PasswordSalt { get; set; }
+
 
     }
 }
