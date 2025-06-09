@@ -1,15 +1,9 @@
-import axios from "axios";
+import api from "./api";
 
-const courtsApi = axios.create({
-  baseURL: "http://localhost:5275/court",
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
 
 export const getCourts = async () => {
   try {
-    const response = await courtsApi.get("/getAll");
+    const response = await api.get("/courts");
     return response.data;
   } catch (error) {
     console.error("Error fetching courts data:", error);
@@ -17,4 +11,3 @@ export const getCourts = async () => {
   }
 };
 
-export default courtsApi;

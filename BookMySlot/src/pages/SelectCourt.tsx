@@ -1,9 +1,21 @@
-import courts from "../data/courts.json";
-import courtsImage from "../assets/football2.jpg";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import type { Court } from "../dataType";
+import courtsImage from "../assets/football2.jpg";
+import { getCourts } from "../services/courtService";
 import Select from "react-select";
 
 const SelectCourt = () => {
+    const [courts, setCourts] = useState<Court[]>([]);
+
+    useEffect(() => {
+           getCourts()
+           .then(setCourts)
+           .catch((error) => {
+               console.error("Error fetching courts:", error);
+           });
+       }, []);
+
     const options = [
     { value: 'daily', label: 'Daily' },
     { value: 'month', label: 'Current' },
@@ -15,6 +27,7 @@ const SelectCourt = () => {
     const handleNavigation = (path: string) => {
         navigate(path);
     }
+
 
   return (
     <div className="w-full h-auto min-h-screen">
@@ -45,7 +58,7 @@ const SelectCourt = () => {
                                 className="flex flex-col bg-white border border-gray-300 rounded-lg p-3 shadow-md transition-all hover:shadow-lg hover:scale-105 w-[250px] flex-shrink-0"
                             >
                                 <img src={courtsImage} alt="Court" className="w-full h-28 object-cover border border-gray-200 rounded" />
-                                <p className="text-md font-semibold text-black mt-2">{court.court_name}</p>
+                                <p className="text-md font-semibold text-black mt-2">{court.name}</p>
                                 <p className="text-sm text-gray-600 mt-1">🪧{court.location}</p>
                                 <p className="text-md font-semibold text-black mt-1">💰 Rs. {court.price} /hr</p>
                                 <button className="mt-3 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all">
@@ -69,14 +82,14 @@ const SelectCourt = () => {
                                 className="flex flex-around justify-between w-full h-[120px] bg-white border border-gray-300 rounded-lg shadow-md transition-all hover:shadow-lg hover:scale-105">
                                 <img
                                 src={courtsImage}
-                                alt={court.court_name}
+                                alt={court.name}
                                 className="w-1/4 h-full object-cover rounded-l-lg"
                                 />
 
                                 <div className="flex flex-col justify-between p-2 w-full">
                                     <div className="flex flex-row justify-between items-start">
                                         <div className="flex flex-col">
-                                            <p className="text-md font-semibold text-black">{court.court_name}</p>
+                                            <p className="text-md font-semibold text-black">{court.name}</p>
                                             <p className="text-sm text-gray-600 mt-1">📍{court.location}</p>
                                         </div>
 

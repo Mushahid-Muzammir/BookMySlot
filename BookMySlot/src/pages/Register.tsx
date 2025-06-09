@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import { register } from "../services/authService";
 
 
@@ -16,9 +17,18 @@ const handleRegister = async (e: React.FormEvent) => {
   try{
     const token = await register(name, email, password);
     localStorage.setItem("token", token);
-    navigate("/login");
-  }catch (error : any) {
+    setError(""); // Clear any previous error messages
+    toast.success("Registration successful! Now Please Login.", {
+      duration: 1500,
+    });
+
+    setTimeout(() => {
+          navigate("/home");
+        }, 2000);  
+
+      }catch (error : any) {
     setError(error.response?.data?.message);
+    toast.error("Registration failed. Please try again.");
   }
 };
 

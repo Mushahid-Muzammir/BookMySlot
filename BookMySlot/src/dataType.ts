@@ -17,3 +17,12 @@ export type Sport = {
   imageUrl: string;
 };
 
+export type Court = {
+  courtId: number;
+  name: string;
+  location: string;
+  price: number;
+  sportId: number;
+  imageUrl: string;
+};
+

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { toast } from "sonner";
 import { login } from "../services/authService"; 
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
@@ -16,10 +17,20 @@ const  handleLogin = async (e : React.FormEvent) => {
   try{
     const token = await login(email, password);
     localStorage.setItem("token", token);
-    navigate("/home"); 
+    localStorage.setItem("isLoggedIn", "true");
+    setErrorMsg(""); // Clear any previous error messages
+    toast.success("Login successful!", {
+      duration: 3000,
+    });  
+
+setTimeout(() => {
+          navigate("/home");
+        }, 2000); 
 
   }catch (error : any) {
     setErrorMsg(error.response?.data?.message || "Login failed. Please try again.");
+    toast.error("Login failed. Please check your credentials.");
+
   }
 }; 
 
