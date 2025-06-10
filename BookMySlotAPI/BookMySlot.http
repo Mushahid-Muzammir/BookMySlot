@@ -31,3 +31,7 @@ Content-Type: application/json
 ###
 GET {{BookMySlot_HostAddress}}/api/courts
 Accept: application/json
+
+###
+GET {{BookMySlot_HostAddress}}/api/courts/sport/2
+Accept: application/json

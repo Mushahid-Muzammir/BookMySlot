@@ -1,4 +1,5 @@
-﻿using BookMySlot.Models;
+﻿using BookMySlot.DTOs;
+using BookMySlot.Models;
 
 namespace BookMySlot.Repositories.CourtContext
 {
@@ -13,6 +14,10 @@ namespace BookMySlot.Repositories.CourtContext
         Task<Court> UpdateCourtAsync(Court court);
 
         Task DeleteCourtAsync(int id);
+
+        Task<List<CourtDTO>> GetCourtsBySportIdAsync(int sportId);
+
+        Task<SportDTO> GetSportByIdAsync(int sportId);
 
     }
 }

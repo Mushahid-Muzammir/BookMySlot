@@ -8,5 +8,7 @@
 
         public string? ImageUrl { get; set; }
 
+        required public ICollection<CourtSport> CourtSports { get; set; }
+
     }
 }

@@ -14,5 +14,7 @@
 
         required public string ContactNumber { get; set; }
 
+        public ICollection<CourtSport> CourtSports { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BookMySlot.Data;
+using BookMySlot.DTOs;
 using BookMySlot.Models;
 using BookMySlot.Repositories.CourtContext;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +47,33 @@ namespace BookMySlot.Repositories.CourtContext
                 _context.Courts.Remove(court);
                 _context.SaveChanges();
             }
+        }
+
+        public async Task<List<CourtDTO>> GetCourtsBySportIdAsync(int sportId)
+        {
+            return await _context.CourtSports
+                .Where(cs => cs.SportId == sportId)
+                .Select(cs => cs.Court)
+                .Select(c => new CourtDTO
+                {
+                    CourtId = c.CourtId,
+                    Name = c.Name,
+                    ImageUrl = c.ImageUrl,
+
+                }).ToListAsync();
+        } 
+
+        public async Task<SportDTO> GetSportByIdAsync(int sportId)
+        {
+            return await _context.Sports
+                .Where(s => s.SportId == sportId)
+                .Select(s => new SportDTO
+                {
+                    SportId = s.SportId,
+                    Name = s.Name,
+                    ImageUrl = s.ImageUrl
+
+                }).FirstOrDefaultAsync();
         }
     }
 }
