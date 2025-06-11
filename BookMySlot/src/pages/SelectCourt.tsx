@@ -1,18 +1,31 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import type { Court } from "../dataType";
 import courtsImage from "../assets/football2.jpg";
-import { getCourts } from "../services/courtService";
+import { getCourtBySportId } from "../services/courtService";
 import Select from "react-select";
 
 const SelectCourt = () => {
   const [courts, setCourts] = useState<Court[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
+  const sportId = parseInt(searchParams.get("sportId") || "0", 10);
+
   useEffect(() => {
-    getCourts()
-      .then(setCourts)
-      .catch((error) => console.error("Error fetching courts:", error));
+    if(sportId){
+      setLoading(true);
+      getCourtBySportId(sportId)
+      .then( res => {
+        setCourts(res);
+        setLoading(false);
+      })
+      
+      .catch((error) => {
+        console.error("Error fetching courts by sport ID:", error);
+      });
+    }
   }, []);
 
   const options = [
@@ -46,6 +59,12 @@ const SelectCourt = () => {
             <h2 className="text-2xl font-semibold text-[#22577E] mb-4">Checkout These Courts</h2>
             <hr className="border-b border-gray-300 mb-6" />
 
+
+            {loading && (
+              <div className="flex items-center justify-center h-64">
+                <p className="text-gray-500">Loading courts...</p>
+              </div>
+            )}
             <div className="flex flex-col gap-6">
               {courts.map((court, index) => (
                 <div

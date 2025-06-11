@@ -11,3 +11,14 @@ export const getCourts = async () => {
   }
 };
 
+export const getCourtBySportId = async (sportId : number) => {
+  try{
+    const response = await api.get(`/courts/sport/${sportId}`);
+    return response.data;
+
+  }catch(error){
+    console.error("Error fetching court by sport ID:", error);
+    throw error;
+  }
+}
+

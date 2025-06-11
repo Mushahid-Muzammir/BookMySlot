@@ -62,7 +62,7 @@ const productImages: Record<string, string> = {
                     <a
                         key={index}
                         className="relative h-64 rounded-lg overflow-hidden group cursor-pointer hover:scale-110 transition-transform duration-300"
-                        onClick={() => handleNavigate(`/selectCourt`)}
+                        onClick={() => handleNavigate(`/selectCourt?sportId=${sport.sportId}`)}
                         style={{
                         backgroundImage: `url(${sport.imageUrl.startsWith("http") ? sport.imageUrl : `${sport.imageUrl}`})`,
                         backgroundSize: 'cover',

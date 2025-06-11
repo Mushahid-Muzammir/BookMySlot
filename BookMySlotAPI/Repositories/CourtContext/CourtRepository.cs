@@ -59,6 +59,7 @@ namespace BookMySlot.Repositories.CourtContext
                     CourtId = c.CourtId,
                     Name = c.Name,
                     ImageUrl = c.ImageUrl,
+                    Location = c.Location,
 
                 }).ToListAsync();
         } 
