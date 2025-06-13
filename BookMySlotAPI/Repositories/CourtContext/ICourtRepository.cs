@@ -7,8 +7,6 @@ namespace BookMySlot.Repositories.CourtContext
     {
         Task<IEnumerable<Court>> GetAllCourtsAsync();
 
-        Task<Court?> GetCourtByIdAsync(int id);
-
         Task<Court> AddCourtAsync(Court court);
 
         Task<Court> UpdateCourtAsync(Court court);
@@ -17,7 +15,11 @@ namespace BookMySlot.Repositories.CourtContext
 
         Task<List<CourtDTO>> GetCourtsBySportIdAsync(int sportId);
 
+        Task<CourtDTO> GetCourtByIdAsync(int courtId);
+
         Task<SportDTO> GetSportByIdAsync(int sportId);
+
+        Task<List<CourtImageDTO>> GetCourtImageByCourtIdAsync(int courtId);
 
     }
 }

@@ -26,3 +26,8 @@ export type Court = {
   imageUrl: string;
 };
 
+export type CourtImage = {
+  courtId: number;
+  imageUrl: string;
+};
+

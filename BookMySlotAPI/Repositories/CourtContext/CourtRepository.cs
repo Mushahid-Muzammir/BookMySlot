@@ -20,11 +20,6 @@ namespace BookMySlot.Repositories.CourtContext
             return await _context.Courts.ToListAsync();
         }
 
-        public async Task<Court?> GetCourtByIdAsync(int id)
-        {
-            return await _context.Courts.FindAsync(id);
-        }
-
         public async Task<Court> AddCourtAsync(Court court)
         {
             _context.Courts.Add(court);
@@ -64,6 +59,20 @@ namespace BookMySlot.Repositories.CourtContext
                 }).ToListAsync();
         } 
 
+        public async Task<CourtDTO> GetCourtByIdAsync(int courtId)
+        {
+            return await _context.Courts
+                .Where(c => c.CourtId == courtId)
+                .Select(c => new CourtDTO
+                {
+                    CourtId = c.CourtId,
+                    Name = c.Name,
+                    ImageUrl = c.ImageUrl,
+                    Location = c.Location,
+                }).FirstOrDefaultAsync();
+
+        }
+
         public async Task<SportDTO> GetSportByIdAsync(int sportId)
         {
             return await _context.Sports
@@ -75,6 +84,17 @@ namespace BookMySlot.Repositories.CourtContext
                     ImageUrl = s.ImageUrl
 
                 }).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<CourtImageDTO>> GetCourtImageByCourtIdAsync(int courtId)
+        {
+            return await _context.CourtImages
+                 .Where(c => c.CourtId == courtId)
+                 .Select(c => new CourtImageDTO
+                 {
+                     CourtId = c.CourtId,
+                     ImageUrl = c.ImageUrl,
+                 }).ToListAsync();
         }
     }
 }

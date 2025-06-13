@@ -35,3 +35,7 @@ Accept: application/json
 ###
 GET {{BookMySlot_HostAddress}}/api/courts/sport/2
 Accept: application/json
+
+###
+GET {{BookMySlot_HostAddress}}/api/courts/courtImage/1
+Accept: application/json

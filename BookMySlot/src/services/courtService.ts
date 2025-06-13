@@ -22,3 +22,14 @@ export const getCourtBySportId = async (sportId : number) => {
   }
 }
 
+export const getCourtImagesById = async(courtId : number) => {
+  try{
+      const response = await api.get(`/courts/courtImage/${courtId}`);
+      return response.data;
+
+  }catch(error){
+    console.error("Error Fetching Court Images", error);
+    throw error;
+  }
+}
+

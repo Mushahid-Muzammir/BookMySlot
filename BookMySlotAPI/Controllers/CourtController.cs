@@ -64,5 +64,13 @@ namespace BookMySlot.Controllers
             var courts = await _repo.GetCourtsBySportIdAsync(sportId);
             return Ok(courts);
         }
+
+        [HttpGet("courtImage/{courtId:int}")]
+        public async Task<IActionResult> GetCourtImagesById( int courtId)
+        {
+            var courtImages = await _repo.GetCourtImageByCourtIdAsync(courtId);
+            return Ok(courtImages);
+
+        }
     }
 }

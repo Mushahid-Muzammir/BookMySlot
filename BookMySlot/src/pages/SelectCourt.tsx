@@ -74,24 +74,22 @@ const SelectCourt = () => {
                   <img
                     src={courtsImage}
                     alt={court.name}
-                    className="w-1/5 h-full object-cover"
+                    className="w-1/6 h-full object-cover rounded-l-lg border-r border-gray-200 flex-shrink-0"
                   />
-                  <div className="flex-1 p-4 flex flex-col justify-between">
+                  <div className="flex-1 p-2 flex flex-col justify-between">
                     <div className="flex justify-between items-start">
                       <div>
-                        <p className="text-lg font-semibold text-black">{court.name}</p>
+                        <p className="text-md font-semibold text-black">{court.name}</p>
                         <p className="text-sm text-gray-600 mt-1">📍{court.location}</p>
                       </div>
-                      <p className="text-md font-semibold text-black whitespace-nowrap">Rs. {court.price} /hr</p>
+                      <div className="flex flex-col gap-2 justify-end">
+                        <p className="text-md font-semibold text-black whitespace-nowrap">Rs. {court.price} /hr</p>
+                        <button
+                          className="px-6 py-2 bg-blue-600 text-white text-sm rounded-full hover:bg-blue-700"
+                          onClick={() => handleNavigation(`/selectDate?courtId=${court.courtId}`)}>
+                          Select Court
+                        </button> 
                     </div>
-                    <hr className="my-2" />
-                    <div className="flex justify-end">
-                      <button
-                        className="px-6 py-2 bg-blue-600 text-white text-sm rounded-full hover:bg-blue-700"
-                        onClick={() => handleNavigation("/selectDate")}
-                      >
-                        Select Court
-                      </button>
                     </div>
                   </div>
                 </div>
