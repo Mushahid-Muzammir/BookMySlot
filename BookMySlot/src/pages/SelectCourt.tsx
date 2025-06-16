@@ -1,27 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import type { Court } from "../dataType";
 import Header from "../components/Header";
 import courtsImage from "../assets/football2.jpg";
 import { getCourtBySportId } from "../services/courtService";
 import Select from "react-select";
-import { components } from "react-select";
 
 
 const SelectCourt = () => {
   const [courts, setCourts] = useState<Court[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchParams] = useSearchParams();
+  const [searchTerm, setSearchTerm] = useState("");
+
   const navigate = useNavigate();
   const sportId = parseInt(searchParams.get("sportId") || "0", 10);
 
   const customStyles = {
     control: (base: any) => ({
       ...base,
-      backgroundColor: "#F5F5F5",
+      backgroundColor: "#FFFFFF",
       borderRadius: "15px",
-      padding: "5px",
-      fontSize: "15px",
+      padding: "3px",
+      fontSize: "13px",
+      fontWeight: "semibold",
       boxShadow: "none",
       width: "250px",
       textColor: "black"
@@ -38,15 +40,6 @@ const SelectCourt = () => {
     { value: "last+month", label: "Last Month" },
     { value: "year", label: "Current Year" },
   ];
-
-  const ImagePlaceholder = (props: any) => (
-    <components.Placeholder {...props}>
-      <div className="flex items-center gap-2 text-gray-500">
-        <img src="/assets/location.svg" alt="icon" className="w-5 h-5" />
-        <span>{props.children}</span>
-      </div>
-    </components.Placeholder>
-  );
 
   const handleNavigation = (path: string) => {
     navigate(path);
@@ -66,28 +59,36 @@ const SelectCourt = () => {
     }
   }, [sportId]);
 
+  const filteredCourts = useMemo( () => {
+    let filtered = courts;
+
+    if(searchTerm){
+      filtered = filtered.filter(item =>
+        item.name?.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+    return filtered;
+  }, [courts, searchTerm]);
+
   return (
     <div className="w-full min-h-screen bg-white py-4">
       <Header />
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-        {/* Hero Text */}
         <div className="text-left mt-8 mb-6">
           <h1 className="text-4xl font-bold text-black mb-3">Choose Your Court</h1>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-400 text-[18px]">
             Filter by location, rating, and price to find the perfect court for your game.
           </p>
         </div>
 
-        {/* Filter Section */}
         <div className="w-full flex flex-wrap justify-center md:justify-between gap-6 ">
           <div className="flex flex-col gap-2">
             <label className="text-sm font-semibold text-gray-700">Location</label>
-            <Select placeholder="Select Location" styles={customStyles} options={filterOptions}   components={{ Placeholder: ImagePlaceholder }}
- />
+            <Select placeholder="Select Location" styles={customStyles} options={filterOptions}/>
           </div>
           <div className="flex flex-col gap-2">
             <label className="text-sm font-semibold text-gray-700">Price</label>
-            <Select placeholder="Price/hr" styles={customStyles} options={filterOptions} />
+            <Select placeholder="Price" styles={customStyles} options={filterOptions} />
           </div>
           <div className="flex flex-col gap-2">
             <label className="text-sm font-semibold text-gray-700">Rating</label>
@@ -100,6 +101,8 @@ const SelectCourt = () => {
           type="text"
           className="w-full px-12 py-2 rounded-[15px] border border-gray-300 focus:outline-none"
           placeholder="Search a court..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
         <img
           src="/assets/search.svg"
@@ -109,7 +112,6 @@ const SelectCourt = () => {
       </div>
 
 
-        {/* Courts Section */}
         <div>
           {loading ? (
             <div className="flex items-center justify-center h-30">
@@ -117,24 +119,31 @@ const SelectCourt = () => {
             </div>
           ) : (
             <div className="flex flex-col gap-6">
-              {courts.map((court, index) => (
+              {filteredCourts.map((court, index) => (
                 <div
-                  key={index}
-                  onClick={() => handleNavigation(`/selectDate?courtId=${court.courtId}`)}
-                  className="h-auto flex flex-row justify-between bg-[#F5F5F5] rounded-[25px] shadow-md hover:shadow-lg hover:scale-[1.01] transition-all overflow-hidden cursor-pointer"
-                >
-                  <div className="p-4 flex flex-col justify-center">
-                    <p className="text-sm text-gray-600">{court.location}</p>
-                    <p className="text-lg font-semibold text-black">{court.name}</p>
-                    <p className="text-sm text-gray-500 mt-1">. 112 Reviews</p>
-                    <p className="text-md font-semibold text-black mt-1">Rs. {court.price} /hr</p>
+                    key={index}
+                    onClick={() => handleNavigation(`/selectDate?courtId=${court.courtId}`)}
+                    className="h-auto flex flex-row justify-between bg-[#F6F6F6] rounded-[25px] shadow-md hover:shadow-lg hover:scale-[1.01] transition-all overflow-hidden cursor-pointer">
+                    <div className="flex-1 p-4 flex flex-col gap-2 justify-center">
+                      <p className="text-lg font-semibold text-black">{court.name}</p>
+                      <p className="text-sm text-gray-500">{court.description}</p>
+                      <p className="text-sm text-gray-500">• 112 Reviews</p>
+                      <div className="flex items-center gap-1">
+                        <img src="/assets/location.svg" alt="icon" className="w-4 h-4" />
+                        <p className="text-sm text-black">{court.location}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col justify-between items-end p-4">
+                      <p className="text-md font-semibold text-black mb-2">Rs. {court.price} /hr</p>
+                      <img
+                        src={courtsImage}
+                        alt={court.name}
+                        className="w-36 h-28 object-cover rounded-r-xl"
+                      />
+                    </div>
                   </div>
-                  <img
-                    src={courtsImage}
-                    alt={court.name}
-                    className="w-1/6 object-cover rounded-r-xl"
-                  />
-                </div>
+
               ))}
             </div>
           )}

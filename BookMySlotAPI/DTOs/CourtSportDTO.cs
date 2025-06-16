@@ -1,6 +1,6 @@
 ﻿namespace BookMySlot.DTOs
 {
-    public class CourtDTO
+    public class CourtSportDTO
     {
         public int CourtId { get; set; }
 
@@ -12,6 +12,6 @@
 
         required public string Location { get; set; }
 
+        required public decimal Price { get; set; }
     }
 }
- 

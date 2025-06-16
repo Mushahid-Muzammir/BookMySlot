@@ -9,5 +9,7 @@
         public int SportId { get; set; }
 
         required public Sport Sport { get; set; }
+
+        required public decimal Price { get; set; }
     }
 }

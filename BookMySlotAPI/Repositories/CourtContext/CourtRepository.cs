@@ -44,18 +44,20 @@ namespace BookMySlot.Repositories.CourtContext
             }
         }
 
-        public async Task<List<CourtDTO>> GetCourtsBySportIdAsync(int sportId)
+        public async Task<List<CourtSportDTO>> GetCourtsBySportIdAsync(int sportId)
         {
             return await _context.CourtSports
+                .Include(cs => cs.Court)
                 .Where(cs => cs.SportId == sportId)
-                .Select(cs => cs.Court)
-                .Select(c => new CourtDTO
+                .Select(cs => new CourtSportDTO
                 {
-                    CourtId = c.CourtId,
-                    Name = c.Name,
-                    ImageUrl = c.ImageUrl,
-                    Location = c.Location,
-
+                    CourtId = cs.Court.CourtId,
+                    Name = cs.Court.Name,
+                    Description = cs.Court.Description,
+                    ImageUrl = cs.Court.ImageUrl,
+                    Location = cs.Court.Location,
+                    Price = cs.Price
+                    
                 }).ToListAsync();
         } 
 
@@ -69,6 +71,7 @@ namespace BookMySlot.Repositories.CourtContext
                     Name = c.Name,
                     ImageUrl = c.ImageUrl,
                     Location = c.Location,
+                    
                 }).FirstOrDefaultAsync();
 
         }

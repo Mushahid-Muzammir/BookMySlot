@@ -20,6 +20,7 @@ export type Sport = {
 export type Court = {
   courtId: number;
   name: string;
+  description : string;
   location: string;
   price: number;
   sportId: number;

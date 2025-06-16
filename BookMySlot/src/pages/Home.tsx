@@ -26,22 +26,20 @@ const Home = () => {
         navigate(path);
     };
 
-
-
-const productImages: Record<string, string> = {
-    shoe,
-    racket,
-    boot,
-};
+    const productImages: Record<string, string> = {
+        shoe,
+        racket,
+        boot,
+    };
   return (
         <div className="w-full h-[auto] bg-white">
-            <div className="bg-[url('./assets/bg3.jpg')] w-full h-screen flex-col items-center justify-center bg-cover">
+            <div className="bg-[url('./assets/bg5.jpg')] w-full h-screen flex-col items-center justify-center bg-cover">
                 <Header />
 
                 <div className="w-full h-screen flex items-center justify-center">
                     <div className="text-center space-y-4 px-6 md:px-12">
-                        <p className="text-5xl md:text-6xl font-bold text-white"> Book Your Game Now! </p>
-                        <p className="text-lg md:text-3xl font-semibold text-[#DDEB9D]"> Instantly book courts and enjoy the best indoor sports experiences around you. </p>
+                        <p className="text-5xl md:text-6xl font-bold text-[#511D43]"> Book Your Game Now! </p>
+                        <p className="text-lg md:text-3xl font-semibold text-[#819A91]"> Instantly book courts and enjoy the best indoor sports experiences around you. </p>
                     </div>
                 </div>
             </div>
@@ -109,7 +107,7 @@ const productImages: Record<string, string> = {
 
 
                 <div className="w-full flex justify-center mt-12">
-                    <button className="px-16 py-5 bg-[#22577E] text-[20px] font-bold text-white">
+                    <button className="px-16 py-5 bg-[#511D43] text-[20px] font-bold text-white">
                         SHOP NOW
                     </button>
                 </div>

@@ -13,7 +13,7 @@ namespace BookMySlot.Repositories.CourtContext
 
         Task DeleteCourtAsync(int id);
 
-        Task<List<CourtDTO>> GetCourtsBySportIdAsync(int sportId);
+        Task<List<CourtSportDTO>> GetCourtsBySportIdAsync(int sportId);
 
         Task<CourtDTO> GetCourtByIdAsync(int courtId);
 

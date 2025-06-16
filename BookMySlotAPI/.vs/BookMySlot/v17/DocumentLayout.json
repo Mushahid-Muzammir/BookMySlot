@@ -70,8 +70,7 @@
               "RelativeToolTip": "Models\\CourtImage.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T10:03:03.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-12T10:03:03.446Z"
             },
             {
               "$type": "Document",
@@ -83,8 +82,7 @@
               "RelativeToolTip": "DTOs\\CourtImageDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T08:44:11.647Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-12T08:44:11.647Z"
             },
             {
               "$type": "Document",
@@ -96,8 +94,7 @@
               "RelativeToolTip": "BookMySlot.http",
               "ViewState": "AgIAABUAAAAAAAAAAAAYwBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-06-10T17:54:33.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-10T17:54:33.17Z"
             },
             {
               "$type": "Document",
@@ -109,8 +106,7 @@
               "RelativeToolTip": "Repositories\\CourtContext\\CourtRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T16:47:53.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-10T16:47:53.778Z"
             },
             {
               "$type": "Document",
@@ -122,8 +118,7 @@
               "RelativeToolTip": "Repositories\\CourtContext\\ICourtRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T16:47:48.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-10T16:47:48.006Z"
             },
             {
               "$type": "Document",

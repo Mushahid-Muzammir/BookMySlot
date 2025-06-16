@@ -1,7 +1,7 @@
 
 const Footer = () => {
   return (
-<div className="w-[100%] flex flex-row h-[400px] gap-24 px-20  py-20 relative bg-[#304146] mt-20">
+<div className="w-[100%] flex flex-row h-[400px] gap-24 px-20  py-20 relative bg-[#819A91] mt-20">
 
     <div className="relative">  
       <p className=" text-[35px] uppercase text-white">BookMySlot</p>

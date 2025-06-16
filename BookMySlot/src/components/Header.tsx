@@ -26,10 +26,10 @@ const Header = () => {
   }
 
   return (
-      <div className="flex flex-row items-center justify-around w-full h-[70px] px-6 z-10 top-0 left-0">
+      <div className="flex flex-row items-center justify-between w-full h-[70px] px-6 z-10 top-0 left-0">
         
         <div className="ml-[30px]">
-          <img alt="Logo" className="w-14 h-full object-cover"/>
+          {/* <img src="assets/logo.png" alt="Logo" className="w-17 h-auto object-cover"/> */}
         </div>
 
         <div className="flex justify-end items-center space-x-10">
