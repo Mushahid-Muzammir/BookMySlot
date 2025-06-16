@@ -34,9 +34,9 @@ const productImages: Record<string, string> = {
     boot,
 };
   return (
-        <div className="w-full h-[auto]  bg-gradient-to-r from-[#F8F9FA] to-[#E3F2FD]">
+        <div className="w-full h-[auto] bg-white">
             <div className="bg-[url('./assets/bg3.jpg')] w-full h-screen flex-col items-center justify-center bg-cover">
-                        <Header />
+                <Header />
 
                 <div className="w-full h-screen flex items-center justify-center">
                     <div className="text-center space-y-4 px-6 md:px-12">
@@ -57,29 +57,27 @@ const productImages: Record<string, string> = {
                 </div>
 
                 <div id="sports" className="max-w-6xl mx-auto px-4 py-12">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {sports.map((sport, index) => (
-                    <a
-                        key={index}
-                        className="relative h-64 rounded-lg overflow-hidden group cursor-pointer hover:scale-110 transition-transform duration-300"
-                        onClick={() => handleNavigate(`/selectCourt?sportId=${sport.sportId}`)}
-                        style={{
-                        backgroundImage: `url(${sport.imageUrl.startsWith("http") ? sport.imageUrl : `${sport.imageUrl}`})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'                       
-                        
-                        }}>
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/70 transition duration-300" />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <h3 className="text-white text-3xl font-extrabold tracking-wide text-center px-4 drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            {sport.name}
-                            </h3>
-                        </div>
-                    </a>
-                    ))}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {sports.map((sport, index) => (
+                        <a
+                            key={index}
+                            className="relative h-64 rounded-lg overflow-hidden group cursor-pointer hover:scale-110 transition-transform duration-300"
+                            onClick={() => handleNavigate(`/selectCourt?sportId=${sport.sportId}`)}
+                            style={{
+                            backgroundImage: `url(${sport.imageUrl.startsWith("http") ? sport.imageUrl : `${sport.imageUrl}`})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center'                                              
+                            }}>
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/70 transition duration-300" />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <h3 className="text-white text-3xl font-extrabold tracking-wide text-center px-4 drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                {sport.name}
+                                </h3>
+                            </div>
+                        </a>
+                        ))}
+                    </div>
                 </div>
-            </div>
-
             </div>
 
             <div className="w-full h-auto relative mt-24 py-6">
@@ -89,7 +87,7 @@ const productImages: Record<string, string> = {
                     </p>
                 </div>
                 <p className="w-[100%] text-2xl mt-8 font-semibold text-center text-[#565656]">
-                Some of our best sellers for you
+                    Some of our best sellers for you
                 </p>
 
                 <div id="products"  className="flex flex-row justify-center gap-8 mt-6 ">

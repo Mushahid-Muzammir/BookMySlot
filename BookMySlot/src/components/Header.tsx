@@ -1,10 +1,9 @@
-import { useLocation, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { toast } from "sonner";
 
 const Header = () => {
 
   const navigate = useNavigate();
-  const location = useLocation();
   var isLoggedIn = localStorage.getItem("isLoggedIn");
   const handleLogout = () => {
     toast("Are you sure you want to logout?",{
@@ -34,7 +33,7 @@ const Header = () => {
         </div>
 
         <div className="flex justify-end items-center space-x-10">
-          <a className={`text-sm font-semibold text-black hover:text-blue-800 cursor-pointer ${location.pathname === '/home' ? 'text-white px-[53px] py-[12px] bg-[#22577E] rounded-2xl hover:text-white' : ''}`}>HOME</a>
+          <a className="text-sm font-semibold text-black hover:text-blue-800 cursor-pointer">HOME</a>
           <a className="text-sm font-semibold text-black hover:text-blue-800 cursor-pointer">ABOUT US</a>
           <a className="text-sm font-semibold text-black hover:text-blue-800 cursor-pointer">CONTACT</a>
           <a className="text-sm font-semibold text-black hover:text-blue-800 cursor-pointer">SHOP</a>
