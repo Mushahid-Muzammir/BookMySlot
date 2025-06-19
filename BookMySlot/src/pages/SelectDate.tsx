@@ -14,6 +14,7 @@ const SelectDate = () => {
   const [date, setDate] = useState(new Date());
   const [duration, setDuration] = useState(0);
   const [slots, setSlots] = useState<AvailableSlots[]>([]);
+  const [selectedSlot, setSelectedSlot] = useState<AvailableSlots>()
   const [images, setImages] = useState<CourtImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchParams] = useSearchParams();
@@ -22,7 +23,6 @@ const SelectDate = () => {
 
   const fetchAvailableSlots = async () => {
     try{
-      // const formattedDate = date.toISOString().split("T")[0];
       const res = await getAvailableSlots(courtId, date, duration);
       setSlots(res);
       console.log("Results", res);
@@ -74,7 +74,7 @@ const SelectDate = () => {
         )}
       </div>
 
-      <div  className="px-6">
+      <div  className="px-12">
         <div className="flex flex-wrap gap-6 mb-6 items-end">
           <div className="flex flex-col">
             <label className="text-lg font-semibold mb-2">Pick a Date</label>
@@ -82,6 +82,7 @@ const SelectDate = () => {
               selected={date}
               onChange={(d) => d && setDate(d)}
               dateFormat="yyyy-MM-dd"
+              minDate={new Date()}
               className="border p-2 rounded-md w-[200px]"
             />
           </div>
@@ -108,25 +109,33 @@ const SelectDate = () => {
           </div>
         </div>
 
-
         <div>
-          <h3 className="text-lg font-semibold mb-3">Available Time Slots</h3>
-          <div className="grid grid-cols-4 sm:grid-cols-4 gap-4">
-            {slots.map((slot, index) => (
-              <button
-                key={index}
-                disabled={slot.status === "Booked"}
-                className={`p-3 rounded-md text-sm text-center font-medium transition ${
-                  slot.status === "Available"
-                    ? "bg-green-500 text-white hover:bg-green-400"
-                    : "bg-gray-200 text-gray-500 cursor-not-allowed"
-                }`}
-              >
-                {slot.startTime} - {slot.endTime}
-              </button>
-            ))}
+          <h3 className="text-lg font-semibold mb-3">Available Time Slots on {date.toDateString()}</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mt-6">
+            {slots.map((slot, index) => {
+              const isSelected = slot.startTime === selectedSlot?.startTime && slot.endTime === selectedSlot?.endTime;
+
+              return (
+                <button
+                  key={index}
+                  disabled={slot.status === "Booked"}
+                  onClick={() => setSelectedSlot(slot)}
+                  className={`p-2 rounded-md text-md text-center font-medium transition duration-200 ${
+                    slot.status === "Available"
+                      ? "hover:bg-blue-600 hover:text-white cursor-pointer "
+                      : "border border-gray-300 hover:bg-gray-200 cursor-not-allowed"
+                  } ${isSelected ? "text-white bg-blue-600" : "bg-white border border-gray-600 text-black"}`}
+                >
+                  {slot.startTime} - {slot.endTime}
+                </button>
+              );
+            })}
           </div>
         </div>
+        <div className="w-full flex justify-center py-6">
+          <button className="py-3 px-6 rounded-[15px] text-white bg-blue-600 cursor-pointer">Confirm Booking</button>
+        </div>
+
       </div>
     </div>
   );
