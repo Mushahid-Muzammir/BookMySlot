@@ -66,8 +66,7 @@
               "RelativeToolTip": "DTOs\\CourtSportDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T12:20:56.848Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T12:20:56.848Z"
             },
             {
               "$type": "Document",
@@ -79,8 +78,7 @@
               "RelativeToolTip": "BookMySlot.http",
               "ViewState": "AgIAABUAAAAAAAAAAAAYwBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-06-10T17:54:33.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-10T17:54:33.17Z"
             },
             {
               "$type": "Document",
@@ -92,8 +90,7 @@
               "RelativeToolTip": "Repositories\\CourtContext\\CourtRepository.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAwwAQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T16:47:53.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-10T16:47:53.778Z"
             },
             {
               "$type": "Document",
@@ -103,7 +100,7 @@
               "RelativeDocumentMoniker": "Repositories\\CourtContext\\ICourtRepository.cs",
               "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\CourtContext\\ICourtRepository.cs",
               "RelativeToolTip": "Repositories\\CourtContext\\ICourtRepository.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA1wBYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T16:47:48.006Z",
               "EditorCaption": ""
@@ -118,8 +115,7 @@
               "RelativeToolTip": "DTOs\\CourtDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T16:31:41.086Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-10T16:31:41.086Z"
             },
             {
               "$type": "Document",
@@ -131,8 +127,7 @@
               "RelativeToolTip": "Data\\AppDbContext.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAQwCsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T15:33:52.951Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-10T15:33:52.951Z"
             },
             {
               "$type": "Document",
@@ -144,8 +139,7 @@
               "RelativeToolTip": "Models\\Sport.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAiwA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T15:19:58.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-10T15:19:58.963Z"
             },
             {
               "$type": "Document",
@@ -157,8 +151,7 @@
               "RelativeToolTip": "Models\\CourtSport.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T15:12:31.667Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-10T15:12:31.667Z"
             },
             {
               "$type": "Document",
@@ -170,8 +163,7 @@
               "RelativeToolTip": "Models\\Court.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAUwBAAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T17:47:44.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-08T17:47:44.861Z"
             },
             {
               "$type": "Document",
@@ -183,8 +175,7 @@
               "RelativeToolTip": "Controllers\\CourtController.cs",
               "ViewState": "AgIAADUAAAAAAAAAAAAswDkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T17:47:20.664Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-08T17:47:20.664Z"
             }
           ]
         }

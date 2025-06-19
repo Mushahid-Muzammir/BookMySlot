@@ -32,3 +32,9 @@ export type CourtImage = {
   imageUrl: string;
 };
 
+export type AvailableSlots = {
+  startTime : string,
+  endTime : string,
+  status : string
+};
+

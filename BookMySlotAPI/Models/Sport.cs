@@ -10,5 +10,7 @@
 
         required public ICollection<CourtSport> CourtSports { get; set; }
 
+        public ICollection<Booking> Bookings { get; set; }
+
     }
 }

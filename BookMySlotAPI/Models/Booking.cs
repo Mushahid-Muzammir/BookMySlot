@@ -20,8 +20,8 @@ namespace BookMySlot.Models
 
         required public DateTime Date {  get; set; }
 
-        required public TimeSpan StartTime { get; set; }
+        public TimeSpan StartTime { get; set; }
 
-        required public TimeSpan EndTime { get; set; }
+        public TimeSpan EndTime { get; set; }
     }
 }
