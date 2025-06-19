@@ -21,5 +21,7 @@ namespace BookMySlot.Repositories.CourtContext
 
         Task<List<CourtImageDTO>> GetCourtImageByCourtIdAsync(int courtId);
 
+        Task <List<TimeSlotDTO>> GetAvailableSlotsByCourtId(int courtId, DateTime date, int duration);
+
     }
 }

@@ -2,6 +2,7 @@
 using BookMySlot.DTOs;
 using BookMySlot.Models;
 using BookMySlot.Repositories.CourtContext;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookMySlot.Repositories.CourtContext
@@ -57,9 +58,9 @@ namespace BookMySlot.Repositories.CourtContext
                     ImageUrl = cs.Court.ImageUrl,
                     Location = cs.Court.Location,
                     Price = cs.Price
-                    
+
                 }).ToListAsync();
-        } 
+        }
 
         public async Task<CourtDTO> GetCourtByIdAsync(int courtId)
         {
@@ -71,7 +72,7 @@ namespace BookMySlot.Repositories.CourtContext
                     Name = c.Name,
                     ImageUrl = c.ImageUrl,
                     Location = c.Location,
-                    
+
                 }).FirstOrDefaultAsync();
 
         }
@@ -98,6 +99,35 @@ namespace BookMySlot.Repositories.CourtContext
                      CourtId = c.CourtId,
                      ImageUrl = c.ImageUrl,
                  }).ToListAsync();
+        }
+
+        public async Task<List<TimeSlotDTO>> GetAvailableSlotsByCourtId(int courtId, DateTime date, int duration)
+        {
+            var courtTimings = await _context.Courts
+                .Where(c => c.CourtId == courtId)
+                .Select(c => new { c.OpenTime, c.CloseTime }).FirstOrDefaultAsync();
+
+            var existingBookings = await _context.Bookings
+                .Where(b => b.CourtId == courtId && b.Date == date)
+                .Select(b => new { b.StartTime, b.EndTime }).ToListAsync();
+
+            var slots = new List<TimeSlotDTO>();
+            var slotLength = TimeSpan.FromMinutes(duration);
+
+            for (var initialTime = courtTimings.OpenTime; initialTime + slotLength <= courtTimings.CloseTime; initialTime += slotLength)
+            {
+                var endTime = initialTime + slotLength;
+                var isBooked = existingBookings.Any(b =>
+                    b.StartTime < endTime && b.EndTime > initialTime);
+
+                slots.Add(new TimeSlotDTO
+                {
+                    StartTime = initialTime.ToString(@"hh\:mm"),
+                    EndTime = endTime.ToString(@"hh\:mm"),
+                    Status = isBooked ? "Booked" : "Available"
+                });
+            }
+            return slots;
         }
     }
 }

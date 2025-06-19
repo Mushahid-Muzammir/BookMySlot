@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\dtos\\courtdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:dtos\\courtdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\repositories\\courtcontext\\icourtrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:repositories\\courtcontext\\icourtrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,16 +11,16 @@
       "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:repositories\\courtcontext\\courtrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\bookmyslot.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:bookmyslot.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\dtos\\courtdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:dtos\\courtdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\models\\courtimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:models\\courtimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\dtos\\courtsportdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:dtos\\courtsportdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\dtos\\courtimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:dtos\\courtimagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\models\\courtsport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:models\\courtsport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\controllers\\courtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,16 +31,16 @@
       "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:models\\court.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\models\\courtsport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:models\\courtsport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\models\\sport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:models\\sport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|c:\\projects\\bookmyslot\\bookmyslotapi\\bookmyslot.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{5D207925-FBCA-43E1-AA4E-C691E9315C56}|BookMySlot.csproj|solutionrelative:bookmyslot.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,31 +58,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CourtImage.cs",
-              "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Models\\CourtImage.cs",
-              "RelativeDocumentMoniker": "Models\\CourtImage.cs",
-              "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Models\\CourtImage.cs",
-              "RelativeToolTip": "Models\\CourtImage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T10:03:03.446Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CourtImageDTO.cs",
-              "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\DTOs\\CourtImageDTO.cs",
-              "RelativeDocumentMoniker": "DTOs\\CourtImageDTO.cs",
-              "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\DTOs\\CourtImageDTO.cs",
-              "RelativeToolTip": "DTOs\\CourtImageDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T08:44:11.647Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "CourtSportDTO.cs",
+              "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\DTOs\\CourtSportDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\CourtSportDTO.cs",
+              "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\DTOs\\CourtSportDTO.cs",
+              "RelativeToolTip": "DTOs\\CourtSportDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T12:20:56.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "BookMySlot.http",
               "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\BookMySlot.http",
               "RelativeDocumentMoniker": "BookMySlot.http",
@@ -98,56 +82,56 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "CourtRepository.cs",
               "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\CourtContext\\CourtRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\CourtContext\\CourtRepository.cs",
               "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\CourtContext\\CourtRepository.cs",
               "RelativeToolTip": "Repositories\\CourtContext\\CourtRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAwwAQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T16:47:53.778Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ICourtRepository.cs",
               "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\CourtContext\\ICourtRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\CourtContext\\ICourtRepository.cs",
               "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\CourtContext\\ICourtRepository.cs",
               "RelativeToolTip": "Repositories\\CourtContext\\ICourtRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T16:47:48.006Z"
+              "WhenOpened": "2025-06-10T16:47:48.006Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "CourtDTO.cs",
               "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\DTOs\\CourtDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\CourtDTO.cs",
               "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\DTOs\\CourtDTO.cs",
               "RelativeToolTip": "DTOs\\CourtDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T16:31:41.086Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-10T16:31:41.086Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 7,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
               "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Data\\AppDbContext.cs",
               "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAA1wCsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAQwCsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T15:33:52.951Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "Sport.cs",
               "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Models\\Sport.cs",
               "RelativeDocumentMoniker": "Models\\Sport.cs",
@@ -159,31 +143,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "CourtSport.cs",
               "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Models\\CourtSport.cs",
               "RelativeDocumentMoniker": "Models\\CourtSport.cs",
               "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Models\\CourtSport.cs",
               "RelativeToolTip": "Models\\CourtSport.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T15:12:31.667Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Court.cs",
               "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Models\\Court.cs",
               "RelativeDocumentMoniker": "Models\\Court.cs",
               "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Models\\Court.cs",
               "RelativeToolTip": "Models\\Court.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAUwBAAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-08T17:47:44.861Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "CourtController.cs",
               "DocumentMoniker": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Controllers\\CourtController.cs",
               "RelativeDocumentMoniker": "Controllers\\CourtController.cs",

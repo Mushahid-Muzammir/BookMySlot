@@ -1,4 +1,5 @@
-﻿using BookMySlot.Models;
+﻿using BookMySlot.DTOs;
+using BookMySlot.Models;
 using BookMySlot.Repositories.CourtContext;
 using Microsoft.AspNetCore.Mvc;
 
@@ -71,6 +72,13 @@ namespace BookMySlot.Controllers
             var courtImages = await _repo.GetCourtImageByCourtIdAsync(courtId);
             return Ok(courtImages);
 
+        }
+
+        [HttpGet("GetAvailableSlots")]
+        public async Task<ActionResult<IEnumerable<TimeSlotDTO>>> GetAvailableSlots(int courtId, DateTime date, int duration)
+        {
+            var slots = await _repo.GetAvailableSlotsByCourtId(courtId, date, duration);
+            return Ok(slots);
         }
     }
 }

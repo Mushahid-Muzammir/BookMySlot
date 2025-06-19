@@ -57,7 +57,6 @@ const SelectDate = () => {
         ) : (
           <Swiper
             modules={[Navigation, Pagination]}
-            navigation
             loop
             spaceBetween={10}
             slidesPerView={1}
@@ -79,14 +78,14 @@ const SelectDate = () => {
 
       <div  className="px-6">
         <div className="mb-6">
-        <h2 className="text-2xl font-bold mb-4">Pick a Date</h2>
-        <DatePicker
-          selected={date}
-          onChange={(d) => d && setDate(d)}
-          dateFormat="yyyy-MM-dd"
-          className="border p-2 rounded-md w-full"
-        />
-      </div>
+          <h2 className="text-2xl font-bold mb-4">Pick a Date</h2>
+          <DatePicker
+            selected={date}
+            onChange={(d) => d && setDate(d)}
+            dateFormat="yyyy-MM-dd"
+            className="border p-2 rounded-md w-full"
+          />
+        </div>
 
       <div>
         <h3 className="text-lg font-semibold mb-3">Available Time Slots</h3>

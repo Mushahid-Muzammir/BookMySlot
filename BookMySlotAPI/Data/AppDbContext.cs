@@ -21,6 +21,8 @@ namespace BookMySlot.Data
 
         public DbSet<CourtImage> CourtImages { get; set; }
 
+        public DbSet<Booking> Bookings { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // The composite key means both CourtId and SportId together are the unique key
