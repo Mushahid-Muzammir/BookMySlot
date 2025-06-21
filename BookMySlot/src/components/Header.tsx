@@ -26,35 +26,42 @@ const Header = () => {
   }
 
   return (
-      <div className="flex flex-row items-center justify-between w-full h-[70px] px-6 z-10 top-0 left-0">
+    <div className="w-full py-3 px-8 top-0 z-50">
+      <div className="max-w-screen-xl mx-auto flex items-center justify-between">
         
-        <div className="ml-[30px]">
-          {/* <img src="assets/logo.png" alt="Logo" className="w-17 h-auto object-cover"/> */}
+        <div className="text-2xl font-bold text-[#22577E]">
+          <span>BookMySlot</span>
         </div>
 
-        <div className="flex justify-end items-center space-x-10">
-          <a className="text-sm font-semibold text-black hover:text-blue-800 cursor-pointer">HOME</a>
-          <a className="text-sm font-semibold text-black hover:text-blue-800 cursor-pointer">ABOUT US</a>
-          <a className="text-sm font-semibold text-black hover:text-blue-800 cursor-pointer">CONTACT</a>
-          <a className="text-sm font-semibold text-black hover:text-blue-800 cursor-pointer">SHOP</a>
-          <a className="text-sm font-semibold text-black hover:text-blue-800 cursor-pointer">MY BOOKINGS</a>
+        <div className="flex items-center gap-8">
+          {["Home", "About Us", "Contact", "Shop", "My Bookings"].map((link, idx) => (
+            <a
+              key={idx}
+              className="text-[15px] font-semibold text-[#111317] hover:text-[#22577E] transition duration-200 cursor-pointer"
+            >
+              {link}
+            </a>
+          ))}
 
-          <div className="flex items-center space-x-16">
-          { isLoggedIn ?
-              <a onClick={handleLogout} 
-               className="text-sm font-bold mx-8 px-[53px] py-[12px] hover:bg-[#6482ad] border border-black cursor-pointer">
-                  LogOut
-              </a> 
-              :
-               <button onClick={() => navigate("/login")}  
-              className="text-[15px] font-bold mx-8 px-[53px] py-[12px] text-white bg-[#22577E] rounded-[30px] cursor-pointer hover:bg-[#6482ad] transition duration-300">
-                  Login
-              </button>
-              }
-
-          </div>
+          {isLoggedIn ? (
+            <button
+              onClick={handleLogout}
+              className="px-12 py-2 border border-[#22577E] text-[#111317] font-semibold  hover:bg-[#22577E] hover:text-white transition"
+            >
+              Logout
+            </button>
+          ) : (
+            <button
+              onClick={() => navigate("/login")}
+              className="px-6 py-2 bg-[#22577E] text-white font-semibold rounded-full hover:bg-[#1d4c63] transition"
+            >
+              Login
+            </button>
+          )}
         </div>
       </div>
+    </div>
+
   )
 }
 

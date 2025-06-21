@@ -72,6 +72,7 @@ namespace BookMySlot.Repositories.CourtContext
                     Name = c.Name,
                     ImageUrl = c.ImageUrl,
                     Location = c.Location,
+                    ContactNumber = c.ContactNumber
 
                 }).FirstOrDefaultAsync();
 

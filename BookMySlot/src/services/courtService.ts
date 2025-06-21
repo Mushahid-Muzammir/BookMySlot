@@ -11,6 +11,16 @@ export const getCourts = async () => {
   }
 };
 
+export const getCourtById = async (courtId : number) => {
+  try {
+    const response = await api.get(`/courts/${courtId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching courts data:", error);
+    throw error;
+  }
+};
+
 export const getCourtBySportId = async (sportId : number) => {
   try{
     const response = await api.get(`/courts/sport/${sportId}`);

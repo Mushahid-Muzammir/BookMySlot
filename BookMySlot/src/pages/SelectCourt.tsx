@@ -41,10 +41,6 @@ const SelectCourt = () => {
     { value: "year", label: "Current Year" },
   ];
 
-  const handleNavigation = (path: string) => {
-    navigate(path);
-  };
-
   useEffect(() => {
     if (sportId) {
       getCourtBySportId(sportId)
@@ -71,27 +67,23 @@ const SelectCourt = () => {
   }, [courts, searchTerm]);
 
   return (
-    <div className="w-full min-h-screen bg-white py-4">
+    <div className="w-full min-h-screen bg-white">
       <Header />
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="text-left mt-8 mb-6">
-          <h1 className="text-4xl font-bold text-black mb-3">Choose Your Court</h1>
-          <p className="text-gray-400 text-[18px]">
+          <p className="text-[#111317] text-[18px]">
             Filter by location, rating, and price to find the perfect court for your game.
           </p>
         </div>
 
         <div className="w-full flex flex-wrap justify-center md:justify-between gap-6 ">
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-gray-700">Location</label>
             <Select placeholder="Select Location" styles={customStyles} options={filterOptions}/>
           </div>
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-gray-700">Price</label>
             <Select placeholder="Price" styles={customStyles} options={filterOptions} />
           </div>
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-gray-700">Rating</label>
             <Select placeholder="Rating" styles={customStyles} options={filterOptions} />
           </div>
         </div>
@@ -99,7 +91,7 @@ const SelectCourt = () => {
         <div className="relative w-full my-4">
         <input
           type="text"
-          className="w-full px-12 py-2 rounded-[15px] border border-gray-300 focus:outline-none"
+          className="w-full px-12 py-2 rounded-[15px] border border-[#6C6A61] focus:outline-none"
           placeholder="Search a court..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -115,16 +107,16 @@ const SelectCourt = () => {
         <div>
           {loading ? (
             <div className="flex items-center justify-center h-30">
-              <p className="text-gray-500">Loading courts...</p>
+              <p className="text-[#111317]">Loading courts...</p>
             </div>
           ) : (
             <div className="flex flex-col gap-6">
               {filteredCourts.map((court, index) => (
                 <div
                     key={index}
-                    onClick={() => handleNavigation(`/selectDate?courtId=${court.courtId}`)}
-                    className="h-auto flex flex-row justify-between bg-[#F6F6F6] rounded-[25px] shadow-md hover:shadow-lg hover:scale-[1.01] transition-all overflow-hidden cursor-pointer">
-                    <div className="flex-1 p-4 flex flex-col gap-2 justify-center">
+                    onClick={() => navigate(`/selectDate?courtId=${court.courtId}`, {state: { sportId : sportId, courtPrice : court.price } })}
+                    className="h-auto flex flex-row justify-between bg-white border border-[#C1C7C6] rounded-[25px] hover:shadow-lg hover:scale-[1.01] transition-all overflow-hidden cursor-pointer">
+                    <div className="flex-1 pl-4 flex flex-col justify-center gap-1">
                       <p className="text-lg font-semibold text-black">{court.name}</p>
                       <p className="text-sm text-gray-500">{court.description}</p>
                       <p className="text-sm text-gray-500">• 112 Reviews</p>
@@ -134,16 +126,15 @@ const SelectCourt = () => {
                       </div>
                     </div>
 
-                    <div className="flex flex-col justify-between items-end p-4">
+                    <div className="flex flex-col justify-between items-end p-3">
                       <p className="text-md font-semibold text-black mb-2">Rs. {court.price} /hr</p>
                       <img
                         src={courtsImage}
                         alt={court.name}
-                        className="w-36 h-28 object-cover rounded-r-xl"
+                        className="w-32 h-24 object-cover rounded-r-xl"
                       />
                     </div>
                   </div>
-
               ))}
             </div>
           )}

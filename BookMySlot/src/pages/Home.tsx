@@ -33,25 +33,24 @@ const Home = () => {
     };
   return (
         <div className="w-full h-[auto] bg-white">
-            <div className="bg-[url('./assets/bg5.jpg')] w-full h-screen flex-col items-center justify-center bg-cover">
+            <div className="bg-[url('./assets/bg6.jpg')] w-full h-screen flex-col items-center justify-center bg-cover">
                 <Header />
 
                 <div className="w-full h-screen flex items-center justify-center">
                     <div className="text-center space-y-4 px-6 md:px-12">
-                        <p className="text-5xl md:text-6xl font-bold text-[#511D43]"> Book Your Game Now! </p>
-                        <p className="text-lg md:text-3xl font-semibold text-[#819A91]"> Instantly book courts and enjoy the best indoor sports experiences around you. </p>
+                        <p className="text-3xl md:text-4xl font-bold text-[#111317]">Get Instant Indoor Experience Around You </p>
+                        <button className="py-4 px-12 rounded-tl-xl rounded-br-xl bg-[#111317] text-white font-semibold cursor-pointer" onClick={() => handleNavigate("/selectCourt")}>
+                            Book Now
+                        </button>
                     </div>
                 </div>
             </div>
 
             <div className="w-full h-auto my-12 px-6">
                 <div className="w-full h-[120px] py-9">
-                    <p className="text-5xl text-center font-bold text-[#22577E]">
-                        Book Your Slot Now Itself!
-                    </p>
-                     <p className="text-medium md:text-md text-gray-700 font-medium leading-relaxed mt-4 text-center">
-                        Discover a wide variety of indoor sports you can enjoy at top-class venues near you. Pick your game and book your court in seconds. Simple, fast, and hassle-free.
-                    </p>
+                     <h1 className="text-xl md:text-4xl text-[#111317] font-semibold leading-relaxed text-center">
+                        Discover variety of indoor sports you can enjoy at venues near you. 
+                    </h1>                 
                 </div>
 
                 <div id="sports" className="max-w-6xl mx-auto px-4 py-12">
@@ -80,11 +79,11 @@ const Home = () => {
 
             <div className="w-full h-auto relative mt-24 py-6">
                 <div className="flex flex-col gap-3">
-                    <p className="text-5xl text-center font-bold text-[#22577E]">
+                    <p className="text-5xl text-center font-bold text-[#6C6A61]">
                         Our Finest Selection of Sport Items
                     </p>
                 </div>
-                <p className="w-[100%] text-2xl mt-8 font-semibold text-center text-[#565656]">
+                <p className="w-[100%] text-2xl mt-8 font-semibold text-center text-[#111317]">
                     Some of our best sellers for you
                 </p>
 
@@ -107,7 +106,7 @@ const Home = () => {
 
 
                 <div className="w-full flex justify-center mt-12">
-                    <button className="px-16 py-5 bg-[#511D43] text-[20px] font-bold text-white">
+                    <button className="px-16 py-5 bg-[#C1C7C6] text-[20px] font-bold text-black border border-black cursor-pointer">
                         SHOP NOW
                     </button>
                 </div>

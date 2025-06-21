@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import { getAvailableSlots, getCourtImagesById } from "../services/courtService";
-import type { CourtImage } from "../dataType";
-import type { AvailableSlots } from "../dataType";
+import { useSearchParams, useLocation } from "react-router-dom";
+import { getAvailableSlots, getCourtImagesById, getCourtById } from "../services/courtService";
+import type { Court, CourtImage, AvailableSlots } from "../dataType";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import DatePicker from "react-datepicker";
@@ -11,15 +10,22 @@ import "swiper/swiper-bundle.css";
 
 const SelectDate = () => {
 
+  const [court, setCourt] = useState<Court>();
+  const [courtPrice, setCourtPrice] = useState<number>();
   const [date, setDate] = useState(new Date());
   const [duration, setDuration] = useState(0);
   const [slots, setSlots] = useState<AvailableSlots[]>([]);
-  const [selectedSlot, setSelectedSlot] = useState<AvailableSlots>()
+  const [selectedSlot, setSelectedSlot] = useState<AvailableSlots>();
+  const [openPopup, setOpenPopup] = useState(false);
   const [images, setImages] = useState<CourtImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchParams] = useSearchParams();
+  const location = useLocation();
 
   const courtId = parseInt(searchParams.get("courtId") || "0", 10);
+  const rate = location.state.courtPrice;
+  console.log("Rate:", rate);
+
 
   const fetchAvailableSlots = async () => {
     try{
@@ -36,13 +42,16 @@ const SelectDate = () => {
       try {
         const res = await getCourtImagesById(courtId);
         setImages(res);
+        const courtData = await getCourtById(courtId);
+        setCourt(courtData);
+        const totalPrice = rate*duration/60;
+        setCourtPrice(totalPrice);
       } catch (error) {
-        console.error("Error fetching images:", error);
+        console.error("Error fetching Court details:", error);
       } finally {
         setLoading(false);
       }
     };
-
     fetchImages();
 
   }, [date, courtId, duration]);
@@ -75,37 +84,43 @@ const SelectDate = () => {
       </div>
 
       <div  className="px-12">
-        <div className="flex flex-wrap gap-6 mb-6 items-end">
-          <div className="flex flex-col">
-            <label className="text-lg font-semibold mb-2">Pick a Date</label>
-            <DatePicker
-              selected={date}
-              onChange={(d) => d && setDate(d)}
-              dateFormat="yyyy-MM-dd"
-              minDate={new Date()}
-              className="border p-2 rounded-md w-[200px]"
-            />
-          </div>
+        <h1 className="text-xl text-center font-semibold mb-2">{court?.name}</h1>
+        <div className="flex flex-wrap justify-between items-center mb-6">
+          <div className="flex flex-wrap gap-6 mb-6">
+            <div className="flex flex-col">
+              <label className="text-lg font-semibold mb-2">Pick a Date</label>
+              <DatePicker
+                selected={date}
+                onChange={(d) => d && setDate(d)}
+                dateFormat="yyyy-MM-dd"
+                minDate={new Date()}
+                className="border p-2 rounded-md w-[200px]"
+              />
+            </div>
 
-          <div className="flex flex-col">
-            <label className="text-lg font-semibold mb-2">Slot Duration (min)</label>
-            <input
-              type="number"
-              value={duration}
-              onChange={(e) => setDuration(Number(e.target.value))}
-              className="border p-2 rounded-md w-[200px]"
-              min={60}
-              max={240}
-              step={30}
-            />
-          </div>
+            <div className="flex flex-col">
+              <label className="text-lg font-semibold mb-2">Slot Duration (min)</label>
+              <input
+                type="number"
+                value={duration}
+                onChange={(e) => setDuration(Number(e.target.value))}
+                className="border p-2 rounded-md w-[200px]"
+                min={60}
+                max={240}
+                step={30}
+              />
+            </div>
 
-          <div className="flex items-end">
-            <button
-              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium"
-              onClick={() => fetchAvailableSlots()}>
-              Search
-            </button>
+            <div className="flex items-end">
+              <button
+                className="px-10 py-2 bg-[#111317] cursor-pointer text-white rounded-lg font-medium hover:bg-black"
+                onClick={() => fetchAvailableSlots()}>
+                Search
+              </button>
+            </div>
+          </div>
+          <div>
+            <p className="text-md font-semibold">Contact Us: 📞{court?.contactNumber}</p>
           </div>
         </div>
 
@@ -122,9 +137,9 @@ const SelectDate = () => {
                   onClick={() => setSelectedSlot(slot)}
                   className={`p-2 rounded-md text-md text-center font-medium transition duration-200 ${
                     slot.status === "Available"
-                      ? "hover:bg-blue-600 hover:text-white cursor-pointer "
+                      ? "hover:bg-[#6C6A61] hover:text-white cursor-pointer "
                       : "border border-gray-300 hover:bg-gray-200 cursor-not-allowed"
-                  } ${isSelected ? "text-white bg-blue-600" : "bg-white border border-gray-600 text-black"}`}
+                  } ${isSelected ? "text-white bg-[#6C6A61]" : "bg-white border border-gray-600 text-black"}`}
                 >
                   {slot.startTime} - {slot.endTime}
                 </button>
@@ -133,12 +148,54 @@ const SelectDate = () => {
           </div>
         </div>
         <div className="w-full flex justify-center py-6">
-          <button className="py-3 px-6 rounded-[15px] text-white bg-blue-600 cursor-pointer">Confirm Booking</button>
+          {/* {selectedSlot && ( */}
+            <button className="py-3 px-8 rounded-lg text-white bg-[#111317] hover:bg-black cursor-pointer"
+            onClick={() => setOpenPopup(true)}>
+              Confirm Booking
+            </button>
+          {/* )} */}
         </div>
-
+        {openPopup && (
+           <div className="fixed inset-0 flex items-center justify-center bg-black/50 bg-opacity-50 z-50">
+              <div className="bg-white w-full max-w-md p-6 rounded-lg shadow-lg">
+              <h2 className="text-xl font-bold text-center mb-4">Confirm Your Booking</h2>
+        
+              <div className="border p-4 rounded-lg space-y-3">
+                <div className="flex justify-between">
+                  <p className="font-semibold">📍 Court:</p>
+                  <p className="text-black">{court?.name} </p>
+                </div>
+                <div className="flex justify-between">
+                  <p className="font-semibold">📅 Date:</p>
+                  <p className="text-black">{date?.toLocaleDateString()} </p>
+                </div>
+                <div className="flex justify-between">
+                  <p className="font-semibold">⏰ Time Slot:</p>
+                  <p className="text-black"> {selectedSlot?.startTime}  - {selectedSlot?.endTime} </p>
+                </div>
+          
+                <div className="flex justify-between">
+                  <p className="font-semibold">💰 Price:</p>
+                  <p className="text-black">LKR {rate} /hr</p>
+                </div>
+                <hr/>
+          
+                <div className="flex justify-between text-lg font-semibold">
+                  <p>Total</p>
+                  <p>LKR {courtPrice}  </p>
+                </div>
+              </div>
+        
+              <div className="flex justify-between mt-4">
+                <button onClick={() => setOpenPopup(false)} className="px-8 py-2 bg-[#6C6A61] text-white rounded-lg hover:bg-gray-500">Cancel</button>
+                <button className="px-8 py-2 bg-[#111317] text-white rounded-lg hover:bg-black">Confirm</button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
-  );
-};
+  )}
 
-export default SelectDate;
+
+export default SelectDate

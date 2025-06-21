@@ -8,6 +8,8 @@
 
         public string Description { get; set; }
 
+        required public string ContactNumber { get; set; }
+
         required public string ImageUrl { get; set; }
 
         required public string Location { get; set; }

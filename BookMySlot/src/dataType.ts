@@ -22,6 +22,7 @@ export type Court = {
   name: string;
   description : string;
   location: string;
+  contactNumber: string;
   price: number;
   sportId: number;
   imageUrl: string;
