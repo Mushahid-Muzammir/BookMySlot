@@ -6,6 +6,6 @@ namespace BookMySlot.Repositories.AuthContext
     {
         Task<String> RegisterAsync(RegisterDTO requestObj);
 
-        Task<String> LoginAsync(LoginDTO requestObj);
+        Task<UserDTO> LoginAsync(LoginDTO requestObj);
     }
 }

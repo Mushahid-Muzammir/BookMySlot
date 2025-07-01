@@ -40,7 +40,6 @@ namespace BookMySlot.Controllers
 
         }
 
-
         // PUT: api/sports/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateSport(int id, [FromBody] Sport updatedSport)

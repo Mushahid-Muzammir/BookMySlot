@@ -24,14 +24,13 @@ const SelectDate = () => {
 
   const courtId = parseInt(searchParams.get("courtId") || "0", 10);
   const rate = location.state.courtPrice;
-  console.log("Rate:", rate);
+  const sportId = location.state.sportId;
 
 
   const fetchAvailableSlots = async () => {
     try{
       const res = await getAvailableSlots(courtId, date, duration);
       setSlots(res);
-      console.log("Results", res);
     }catch(error){
         console.error("Error fetching slots:", error);
     }
@@ -55,6 +54,14 @@ const SelectDate = () => {
     fetchImages();
 
   }, [date, courtId, duration]);
+
+  const bookingData={
+    courtID : courtId,
+    sportId: sportId,
+    date : date,
+    startTime: selectedSlot?.startTime,
+    endTime: selectedSlot?.endTime
+  }
 
   return (
     <div className="max-w-full mx-auto">

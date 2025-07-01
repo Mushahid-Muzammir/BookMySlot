@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualBasic;
-
-namespace BookMySlot.Models
+﻿namespace BookMySlot.Models
 {
     public class Booking
     {

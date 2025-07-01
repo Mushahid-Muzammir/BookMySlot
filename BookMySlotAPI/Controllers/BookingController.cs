@@ -1,12 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BookMySlot.Models;
+using BookMySlot.Repositories.BookingContext;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookMySlot.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class BookingsController : Controller
     {
-        public IActionResult Index()
+        private readonly IBookingRepository _repo;
+        public BookingsController(IBookingRepository repo)
         {
-            return View();
+            _repo = repo;
         }
+
+        [HttpPost]
+        public async Task<Booking> CreateBooking(Booking booking)
+        {
+            var createdBooking = await _repo.CreateBookingAsync(booking);
+            return createdBooking;
+        }
+        
     }
 }

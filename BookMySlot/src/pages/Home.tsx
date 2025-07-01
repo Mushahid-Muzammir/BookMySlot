@@ -40,7 +40,7 @@ const Home = () => {
                     <div className="text-center space-y-4 px-6 md:px-12">
                         <p className="text-3xl md:text-4xl font-bold text-[#111317]">Get Instant Indoor Experience Around You </p>
                         <button className="py-4 px-12 rounded-tl-xl rounded-br-xl bg-[#111317] text-white font-semibold cursor-pointer" onClick={() => handleNavigate("/selectCourt")}>
-                            Book Now
+                            Book Your Slot
                         </button>
                     </div>
                 </div>
