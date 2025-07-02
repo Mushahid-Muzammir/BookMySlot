@@ -5,6 +5,7 @@ using System.Text;
 using BookMySlot.Data;
 using BookMySlot.DTOs;
 using BookMySlot.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -50,14 +51,20 @@ namespace BookMySlot.Repositories.AuthContext
 
         }
 
-        public async Task<String> LoginAsync(LoginDTO requestBody)
+        public async Task<UserDTO> LoginAsync(LoginDTO requestBody)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == requestBody.Email);
             if (user == null || !VerifyPassword(requestBody.Password, user.PasswordHash, user.PasswordSalt))
             {
                 throw new Exception("Invalid Credentials");
             }
-            return GenerateToken(user);
+            var GeneratedToken = GenerateToken(user);
+            return ( new UserDTO
+            {
+                Token = GeneratedToken,
+                UserId = user.UserId,
+                Name = user.Name
+            });
         }
 
         private void CreatePasswordHash(string password, out byte[] hash, out byte[] salt)
@@ -78,7 +85,7 @@ namespace BookMySlot.Repositories.AuthContext
         {
             var claims = new[]
             {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Name, user.Name)
             };

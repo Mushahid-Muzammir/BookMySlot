@@ -2,35 +2,34 @@ import React, { useState } from "react";
 import { toast } from "sonner";
 import { login } from "../services/authService"; 
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 
 const Login = () => {
 
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [errorMsg, setErrorMsg] = useState("");
-
+const { setUser } = useUser();
 
 const navigate = useNavigate();
 
 const  handleLogin = async (e : React.FormEvent) => {
   e.preventDefault();
   try{
-    const token = await login(email, password);
-    localStorage.setItem("token", token);
+    const response = await login(email, password);
+    setUser(response)
+    console.log("Login response:", response);
     localStorage.setItem("isLoggedIn", "true");
-    setErrorMsg(""); // Clear any previous error messages
+    setErrorMsg(""); 
     toast.success("Login successful!", {
       duration: 3000,
     });  
 
-setTimeout(() => {
-          navigate("/home");
-        }, 2000); 
+  setTimeout(() => { navigate("/home") }, 1500); 
 
   }catch (error : any) {
     setErrorMsg(error.response?.data?.message || "Login failed. Please try again.");
     toast.error("Login failed. Please check your credentials.");
-
   }
 }; 
 

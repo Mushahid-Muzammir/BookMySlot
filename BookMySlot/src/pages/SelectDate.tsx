@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
-import { useSearchParams, useLocation } from "react-router-dom";
+import { useSearchParams, useLocation, useNavigate } from "react-router-dom";
 import { getAvailableSlots, getCourtImagesById, getCourtById } from "../services/courtService";
 import type { Court, CourtImage, AvailableSlots } from "../dataType";
+import { createBooking } from "../services/bookingService";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "swiper/swiper-bundle.css";
+import { useUser } from "../context/UserContext";
+import { toast } from "sonner";
 
 const SelectDate = () => {
 
@@ -21,10 +24,13 @@ const SelectDate = () => {
   const [loading, setLoading] = useState(true);
   const [searchParams] = useSearchParams();
   const location = useLocation();
+  const navigate = useNavigate();
+  const {user} = useUser();
 
   const courtId = parseInt(searchParams.get("courtId") || "0", 10);
   const rate = location.state.courtPrice;
   const sportId = location.state.sportId;
+  const userId = user?.userId || 0;
 
 
   const fetchAvailableSlots = async () => {
@@ -35,6 +41,15 @@ const SelectDate = () => {
         console.error("Error fetching slots:", error);
     }
   };
+
+  const padToTwo = (n: number) => n.toString().padStart(2, '0');
+
+// If using JS Date object
+const getIsoTime = (timeStr: string): string => {
+  const [hours, minutes] = timeStr.split(':');
+  return `${padToTwo(+hours)}:${padToTwo(+minutes)}:00`;
+};
+
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -55,12 +70,23 @@ const SelectDate = () => {
 
   }, [date, courtId, duration]);
 
-  const bookingData={
-    courtID : courtId,
+  const bookingData = {
+    courtId: courtId,        
+    userId: userId,
     sportId: sportId,
-    date : date,
-    startTime: selectedSlot?.startTime,
-    endTime: selectedSlot?.endTime
+    date: date.toISOString().split("T")[0], 
+    startTime: getIsoTime(selectedSlot?.startTime || "00:00"),      
+    endTime: getIsoTime(selectedSlot?.endTime || "00:00")      
+};
+
+  const confirmBooking = async () => {
+    const res = await createBooking(bookingData);
+    toast.success("Booking Confirmed Successfully!");
+    setOpenPopup(false);
+    setSelectedSlot(undefined);
+    setDate(new Date());
+    navigate("/home", { state: { courtId: courtId, bookingId: res.bookingId } });
+    
   }
 
   return (
@@ -174,7 +200,7 @@ const SelectDate = () => {
                 </div>
                 <div className="flex justify-between">
                   <p className="font-semibold">📅 Date:</p>
-                  <p className="text-black">{date?.toLocaleDateString()} </p>
+                  <p className="text-black">{date.toISOString().split("T")[0]} </p>
                 </div>
                 <div className="flex justify-between">
                   <p className="font-semibold">⏰ Time Slot:</p>
@@ -195,7 +221,7 @@ const SelectDate = () => {
         
               <div className="flex justify-between mt-4">
                 <button onClick={() => setOpenPopup(false)} className="px-8 py-2 bg-[#6C6A61] text-white rounded-lg hover:bg-gray-500">Cancel</button>
-                <button className="px-8 py-2 bg-[#111317] text-white rounded-lg hover:bg-black">Confirm</button>
+                <button onClick={confirmBooking} className="px-8 py-2 bg-[#111317] text-white rounded-lg hover:bg-black">Confirm</button>
               </div>
             </div>
           </div>

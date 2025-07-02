@@ -42,8 +42,7 @@ namespace BookMySlot.Data
             modelBuilder.Entity<CourtImage>()
                 .HasOne(ci => ci.Court)
                 .WithMany() // Specify the relationship as one-to-many
-                .HasForeignKey(ci => ci.CourtId); // Correctly define the foreign key  
-
+                .HasForeignKey(ci => ci.CourtId); // Correctly define the foreign key
 
         }
 

@@ -6,9 +6,9 @@ namespace BookMySlot.Models
     public class User
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int UserId { get; set; }
 
-        [Required]
+        [Required] 
         required public string Name { get; set; }
 
         [EmailAddress, Required]

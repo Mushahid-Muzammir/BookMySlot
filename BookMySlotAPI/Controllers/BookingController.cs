@@ -1,4 +1,5 @@
-﻿using BookMySlot.Models;
+﻿using BookMySlot.DTOs;
+using BookMySlot.Models;
 using BookMySlot.Repositories.BookingContext;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +16,7 @@ namespace BookMySlot.Controllers
         }
 
         [HttpPost]
-        public async Task<Booking> CreateBooking(Booking booking)
+        public async Task<string> CreateBooking([FromBody] BookingDTO booking)
         {
             var createdBooking = await _repo.CreateBookingAsync(booking);
             return createdBooking;

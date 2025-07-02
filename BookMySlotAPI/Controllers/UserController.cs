@@ -36,7 +36,7 @@ namespace BookMySlot.Controllers
         {
             var createdUser = await _repo.AddUserAsync(user);
             //return Ok(createdUser);
-            return CreatedAtAction(nameof(GetUser), new { id = createdUser.Id }, createdUser);
+            return CreatedAtAction(nameof(GetUser), new { id = createdUser.UserId }, createdUser);
 
         }
         //CreatedAtAction(...) is a helper method that returns a 201 Created status.
@@ -50,7 +50,7 @@ namespace BookMySlot.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] User updatedUser)
         {
-            if( id != updatedUser.Id )
+            if( id != updatedUser.UserId )
             {
                 return BadRequest("User ID mismatch."); 
             }

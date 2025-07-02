@@ -43,22 +43,20 @@ export const getCourtImagesById = async(courtId : number) => {
   }
 }
 
-export const getAvailableSlots = async(courtId : number, date : Date, duration : number) =>
-{
-  try{
+export const getAvailableSlots = async (courtId: number, date: Date, duration: number) => {
+  try {
     const response = await api.get(`/courts/GetAvailableSlots`, {
-      params:{
-        courtId : courtId,
-        data : date,
-        duration : duration
+      params: {
+        courtId,
+        date: date.toISOString().split('T')[0],
+        duration,
       }
     });
     return response.data;
-
-  }catch(error)
-  {
+  } catch (error) {
     console.error("Error fetching Slots", error);
     throw error;
   }
-}
+};
+
 

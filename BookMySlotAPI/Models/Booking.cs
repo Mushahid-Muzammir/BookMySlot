@@ -1,25 +1,38 @@
-﻿namespace BookMySlot.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BookMySlot.Models
 {
     public class Booking
     {
-        required public int BookingId { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int BookingId { get; set; }
 
-        required public int CourtId { get; set; }
+        [Required]
+        public int CourtId { get; set; }
 
-        public ICollection<Court> Court { get; set; }
+        [ForeignKey("CourtId")]
+        public Court Court { get; set; }  
 
-        required public int SportId { get; set; }
+        [Required]
+        public int SportId { get; set; }
 
-        public ICollection<Sport> Sports { get; set; }
+        [ForeignKey("SportId")]
+        public Sport Sport { get; set; }  
 
-        required public int PlayerId {  get; set; }
+        [Required]
+        public int UserId { get; set; }
 
-        public ICollection<Player> Player { get; set; }
+        [ForeignKey("UserId")]
+        public User User { get; set; } 
 
-        required public DateTime Date {  get; set; }
+        [Required]
+        public DateOnly Date { get; set; }
 
+        [Required]
         public TimeSpan StartTime { get; set; }
 
+        [Required]
         public TimeSpan EndTime { get; set; }
     }
 }

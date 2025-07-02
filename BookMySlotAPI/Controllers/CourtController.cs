@@ -75,7 +75,7 @@ namespace BookMySlot.Controllers
         }
 
         [HttpGet("GetAvailableSlots")]
-        public async Task<ActionResult<IEnumerable<TimeSlotDTO>>> GetAvailableSlots(int courtId, DateTime date, int duration)
+        public async Task<ActionResult<IEnumerable<TimeSlotDTO>>> GetAvailableSlots(int courtId, DateOnly date, int duration)
         {
             var slots = await _repo.GetAvailableSlotsByCourtId(courtId, date, duration);
             return Ok(slots);

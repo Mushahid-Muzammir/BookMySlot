@@ -1,5 +1,8 @@
 ﻿using BookMySlot.Data;
+using BookMySlot.DTOs;
 using BookMySlot.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookMySlot.Repositories.BookingContext
 {
@@ -12,11 +15,21 @@ namespace BookMySlot.Repositories.BookingContext
             _context = context;
         }
 
-        public async Task<Booking> CreateBookingAsync(Booking booking)
+        public async Task<string> CreateBookingAsync( [FromBody] BookingDTO booking)
         {
-            _context.Bookings.Add(booking);
+            var bookingData = new Booking
+            {
+                CourtId = booking.CourtId,
+                SportId = booking.SportId,
+                UserId = booking.UserId,
+                Date = booking.Date,
+                StartTime = booking.StartTime,
+                EndTime = booking.EndTime,
+
+            };
+            _context.Bookings.Add(bookingData);
             await _context.SaveChangesAsync();
-            return booking;
+            return "All Okay";
         }
 
     }

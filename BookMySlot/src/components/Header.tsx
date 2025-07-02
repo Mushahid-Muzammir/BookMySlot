@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom"
 import { toast } from "sonner";
+import { useUser } from "../context/UserContext";
+
 
 const Header = () => {
+  const {user} = useUser();
+
 
   const navigate = useNavigate();
   var isLoggedIn = localStorage.getItem("isLoggedIn");
@@ -30,7 +34,7 @@ const Header = () => {
       <div className="max-w-screen-xl mx-auto flex items-center justify-between">
         
         <div className="text-2xl font-bold text-[#22577E]">
-          <span>BookMySlot</span>
+          <span>{user?.name}</span>
         </div>
 
         <div className="flex items-center gap-8">

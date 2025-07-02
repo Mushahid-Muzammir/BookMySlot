@@ -15,6 +15,10 @@ Content-Type: application/json
 }
 
 ###
+GET {{BookMySlot_HostAddress}}/api/auth/user
+Accept: application/json
+
+###
 GET {{BookMySlot_HostAddress}}/api/sports
 Accept: application/json
 
@@ -42,3 +46,16 @@ Accept: application/json
 ###
 GET {{BookMySlot_HostAddress}}/api/courts/GetAvailableSlots
 Accept: application/json
+
+
+###
+POST {{BookMySlot_HostAddress}}/api/booking
+Content-Type: application/json
+{
+    "courtId": 1,
+    "sportId": 1
+    "playerId": 1
+    "date": 7/1/2025
+    "startTime": "11:00" 
+    "endTime": "13:00"
+} 

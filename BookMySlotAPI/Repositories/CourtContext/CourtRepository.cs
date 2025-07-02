@@ -102,33 +102,46 @@ namespace BookMySlot.Repositories.CourtContext
                  }).ToListAsync();
         }
 
-        public async Task<List<TimeSlotDTO>> GetAvailableSlotsByCourtId(int courtId, DateTime date, int duration)
+        public async Task<List<TimeSlotDTO>> GetAvailableSlotsByCourtId(int courtId, DateOnly date, int duration)
         {
             var courtTimings = await _context.Courts
                 .Where(c => c.CourtId == courtId)
-                .Select(c => new { c.OpenTime, c.CloseTime }).FirstOrDefaultAsync();
+                .Select(c => new { c.OpenTime, c.CloseTime }) 
+                .FirstOrDefaultAsync();
+
+            if (courtTimings == null)
+            {
+                throw new Exception("Court not found");
+            }
 
             var existingBookings = await _context.Bookings
                 .Where(b => b.CourtId == courtId && b.Date == date)
-                .Select(b => new { b.StartTime, b.EndTime }).ToListAsync();
+                .Select(b => new { b.StartTime, b.EndTime }) 
+                .ToListAsync();
 
             var slots = new List<TimeSlotDTO>();
             var slotLength = TimeSpan.FromMinutes(duration);
 
-            for (var initialTime = courtTimings.OpenTime; initialTime + slotLength <= courtTimings.CloseTime; initialTime += slotLength)
+            for (var initialTime = courtTimings.OpenTime;
+                 initialTime + slotLength <= courtTimings.CloseTime;
+                 initialTime += slotLength)
             {
                 var endTime = initialTime + slotLength;
+
                 var isBooked = existingBookings.Any(b =>
                     b.StartTime < endTime && b.EndTime > initialTime);
 
                 slots.Add(new TimeSlotDTO
                 {
-                    StartTime = initialTime.ToString(@"hh\:mm"),
-                    EndTime = endTime.ToString(@"hh\:mm"),
+                    StartTime = $"{initialTime.Hours:D2}:{initialTime.Minutes:D2}",
+                    EndTime = $"{endTime.Hours:D2}:{endTime.Minutes:D2}",
                     Status = isBooked ? "Booked" : "Available"
                 });
+
             }
+
             return slots;
         }
+
     }
 }

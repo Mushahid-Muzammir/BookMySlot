@@ -36,7 +36,7 @@ namespace BookMySlot.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody][Required] LoginDTO loginDTO)
+        public async Task<ActionResult<UserDTO>> Login([FromBody][Required] LoginDTO loginDTO)
         {
             if (!ModelState.IsValid)
             {
@@ -45,8 +45,8 @@ namespace BookMySlot.Controllers
 
             try
             {
-                var token = await _authService.LoginAsync(loginDTO);
-                return Ok(new { token = token });
+                var user = await _authService.LoginAsync(loginDTO);
+                return Ok(user);
             }
             catch (Exception ex)
             {

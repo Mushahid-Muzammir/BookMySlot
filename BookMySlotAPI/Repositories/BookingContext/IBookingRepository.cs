@@ -1,9 +1,11 @@
-﻿using BookMySlot.Models;
+﻿using BookMySlot.DTOs;
+using BookMySlot.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookMySlot.Repositories.BookingContext
 {
     public interface IBookingRepository
     {
-        Task<Booking> CreateBookingAsync(Booking booking);
+        Task<string> CreateBookingAsync( [FromBody] BookingDTO booking);
     }
 }

@@ -5,6 +5,12 @@ export interface LoginForm {
   password: string;
 }
 
+export interface User {
+  id : number,
+  email: string;
+  name: string;
+}
+
 export interface RegisterForm {
   fullName: string;
   email: string;
@@ -38,4 +44,14 @@ export type AvailableSlots = {
   endTime : string,
   status : string
 };
+
+export type Booking = {
+  courtId: number;
+  sportId: number;
+  playerId: number;
+  date : Date,
+  startTime : string,
+  endTime : string, 
+};
+
 
