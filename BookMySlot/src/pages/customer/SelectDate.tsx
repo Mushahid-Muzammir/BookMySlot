@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, useLocation, useNavigate } from "react-router-dom";
-import { getAvailableSlots, getCourtImagesById, getCourtById } from "../services/courtService";
-import type { Court, CourtImage, AvailableSlots } from "../dataType";
-import { createBooking } from "../services/bookingService";
+import { getAvailableSlots, getCourtImagesById, getCourtById } from "../../services/courtService";
+import type { Court, CourtImage, AvailableSlots } from "../../dataType";
+import { createBooking } from "../../services/bookingService";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "swiper/swiper-bundle.css";
-import { useUser } from "../context/UserContext";
-import { toast } from "sonner";
+import { useUser } from "../../context/UserContext";
 
 const SelectDate = () => {
 
@@ -22,6 +21,7 @@ const SelectDate = () => {
   const [openPopup, setOpenPopup] = useState(false);
   const [images, setImages] = useState<CourtImage[]>([]);
   const [loading, setLoading] = useState(true);
+  const [successPopup, setSuccessPopup] = useState(false);
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -44,11 +44,10 @@ const SelectDate = () => {
 
   const padToTwo = (n: number) => n.toString().padStart(2, '0');
 
-// If using JS Date object
-const getIsoTime = (timeStr: string): string => {
-  const [hours, minutes] = timeStr.split(':');
-  return `${padToTwo(+hours)}:${padToTwo(+minutes)}:00`;
-};
+  const getIsoTime = (timeStr: string): string => {
+    const [hours, minutes] = timeStr.split(':');
+    return `${padToTwo(+hours)}:${padToTwo(+minutes)}:00`;
+  };
 
 
   useEffect(() => {
@@ -77,16 +76,15 @@ const getIsoTime = (timeStr: string): string => {
     date: date.toISOString().split("T")[0], 
     startTime: getIsoTime(selectedSlot?.startTime || "00:00"),      
     endTime: getIsoTime(selectedSlot?.endTime || "00:00")      
-};
+  };
 
   const confirmBooking = async () => {
-    const res = await createBooking(bookingData);
-    toast.success("Booking Confirmed Successfully!");
+    await createBooking(bookingData);
+    setSuccessPopup(true);
     setOpenPopup(false);
     setSelectedSlot(undefined);
     setDate(new Date());
-    navigate("/home", { state: { courtId: courtId, bookingId: res.bookingId } });
-    
+
   }
 
   return (
@@ -97,7 +95,6 @@ const getIsoTime = (timeStr: string): string => {
         ) : (
           <Swiper
             modules={[Navigation, Pagination]}
-            loop
             spaceBetween={10}
             slidesPerView={1}
             pagination={{ clickable : true }}
@@ -171,7 +168,7 @@ const getIsoTime = (timeStr: string): string => {
                   className={`p-2 rounded-md text-md text-center font-medium transition duration-200 ${
                     slot.status === "Available"
                       ? "hover:bg-[#6C6A61] hover:text-white cursor-pointer "
-                      : "border border-gray-300 hover:bg-gray-200 cursor-not-allowed"
+                      : "bg-gray-200 cursor-not-allowed"
                   } ${isSelected ? "text-white bg-[#6C6A61]" : "bg-white border border-gray-600 text-black"}`}
                 >
                   {slot.startTime} - {slot.endTime}
@@ -227,6 +224,25 @@ const getIsoTime = (timeStr: string): string => {
           </div>
         )}
       </div>
+      {successPopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+            <h2 className="text-xl font-bold text-center mb-4">Booking Confirmed!</h2>
+            <p className="text-center">Your booking has been successfully confirmed.</p>
+            <div className="flex justify-center mt-6">
+              <button
+                onClick={() => {
+                  setSuccessPopup(false);
+                  navigate("/home");
+                }}
+                className="px-8 py-2 bg-[#111317] text-white rounded-lg hover:bg-black"
+              >
+                Go to Home
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )}
 

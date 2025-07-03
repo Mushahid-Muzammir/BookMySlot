@@ -1,17 +1,24 @@
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import type { Sport } from "../dataType";
-import { getAllSports } from "../services/sportService";
-import bestSellers from "../data/bestSoldProducts.json";
-import shoe from "../assets/shoe.jpg";
-import racket from "../assets/racket.jpg";
-import boot from "../assets/boot.jpg";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import type { Sport } from "../../dataType";
+import { getAllSports } from "../../services/sportService";
+import bestSellers from "../../data/bestSoldProducts.json";
+import shoe from "../../assets/shoe.jpg";
+import racket from "../../assets/racket.jpg";
+import boot from "../../assets/boot.jpg";
 import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
     const [sports, setSport] = useState<Sport[]>([]);
+
+    const scrollToSection = () => {
+        const section = document.getElementById('sportSection');
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
 
     useEffect(() => {
         getAllSports()
@@ -39,21 +46,21 @@ const Home = () => {
                 <div className="w-full h-screen flex items-center justify-center">
                     <div className="text-center space-y-4 px-6 md:px-12">
                         <p className="text-3xl md:text-4xl font-bold text-[#111317]">Get Instant Indoor Experience Around You </p>
-                        <button className="py-4 px-12 rounded-tl-xl rounded-br-xl bg-[#111317] text-white font-semibold cursor-pointer" onClick={() => handleNavigate("/selectCourt")}>
+                        <button className="py-4 px-12 rounded-tl-xl rounded-br-xl bg-[#111317] text-white font-bold cursor-pointer" onClick={scrollToSection}>
                             Book Your Slot
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div className="w-full h-auto my-12 px-6">
+            <div id="sportSection" className="w-full h-auto my-12 px-6">
                 <div className="w-full h-[120px] py-9">
                      <h1 className="text-xl md:text-4xl text-[#111317] font-semibold leading-relaxed text-center">
                         Discover variety of indoor sports you can enjoy at venues near you. 
                     </h1>                 
                 </div>
 
-                <div id="sports" className="max-w-6xl mx-auto px-4 py-12">
+                <div className="max-w-6xl mx-auto px-4 py-12">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {sports.map((sport, index) => (
                         <a

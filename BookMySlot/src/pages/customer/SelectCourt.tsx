@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import type { Court } from "../dataType";
-import Header from "../components/Header";
-import courtsImage from "../assets/football2.jpg";
-import { getCourtBySportId } from "../services/courtService";
+import type { Court } from "../../dataType";
+import Header from "../../components/Header";
+import courtsImage from "../../assets/football2.jpg";
+import { getCourtBySportId } from "../../services/courtService";
 import Select from "react-select";
 
 

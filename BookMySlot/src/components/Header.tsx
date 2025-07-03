@@ -34,7 +34,7 @@ const Header = () => {
       <div className="max-w-screen-xl mx-auto flex items-center justify-between">
         
         <div className="text-2xl font-bold text-[#22577E]">
-          <span>{user?.name}</span>
+          <span>BookMySlot</span>
         </div>
 
         <div className="flex items-center gap-8">
@@ -46,6 +46,14 @@ const Header = () => {
               {link}
             </a>
           ))}
+          {/* {user && (
+            <div>
+              <span className="text-[15px] font-semibold text-[#111317]">
+                Welcome
+              </span>
+              <p>{user.name}</p>
+            </div>
+          )} */}
 
           {isLoggedIn ? (
             <button

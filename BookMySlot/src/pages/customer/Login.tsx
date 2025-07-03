@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
-import { login } from "../services/authService"; 
+import { login } from "../../services/authService"; 
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../context/UserContext";
+import { useUser } from "../../context/UserContext";
 
 const Login = () => {
 
