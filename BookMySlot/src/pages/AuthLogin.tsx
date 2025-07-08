@@ -10,58 +10,43 @@ export const AuthLogin = () => {
       toast.success("Login successful! 🎉", {
         duration: 1000,
       });
-      navigate("/home");
+      navigate("/admin/dashboard");
     }
 
   return (
     
-    <div className="flex items-center justify-center min-h-screen bg-white px-4">
-      <div className="flex flex-col md:flex-row items-center bg-white shadow-lg rounded-lg overflow-hidden max-w-5xl w-full">   
-        <div className="hidden md:block md:w-1/2 bg-gray-100">
-          <img alt="Login Visual" className="w-full h-full object-cover" />
-        </div>
+    <div className="flex flex-col w-full bg-white rounded-2xl shadow-md overflow-hidden">
+      <div className="flex items-center justify-center min-h-screen bg-white px-4">
+        <div className="flex-1 p-8 flex flex-col justify-center">
+            <h1 className="text-4xl font-bold text-gray-800 text-center mb-2">
+              Welcome Back
+            </h1>
+            <p className="text-md text-gray-600 text-center mb-6">
+              Best manage your indoor bookings with us!
+            </p>
 
-        <div className="w-full md:w-1/2 px-5">
-          <h2 className="text-3xl font-bold text-black">Welcome Back!</h2>
-          <h4 className="font-semibold text-gray-500 mb-6">To continue please enter your username and password </h4>
-          
-          <form className="space-y-8">
-            <div>
-              <input
-                type="text"
-                id="username"
-                placeholder="Username"
-                className="w-full px-5 py-3 border border-gray-300 rounded-full focus:outline-none"
-              />
-            </div>
+            <form className="flex flex-col gap-6 items-center">
+              <div>
+                <input
+                  type="email"
+                  placeholder="Username or Email"
+                  className="w-full px-8 py-4  border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 outline-none"
+                />
+              </div>
 
-            <div>
-              <input
-                type="password"
-                id="password"
-                placeholder="Password"
-                className="w-full px-5 py-3 border border-gray-300 rounded-full focus:outline-none"
-              />
-            </div>
+              <div>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  className="w-full px-8 py-4 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 outline-none"
+                />
+              </div>
 
-            <div className=''>
-                
-                <a 
-                className='text-blue-600 hover:text-blue-700 text-sm font-semibold' 
-                href=''>
-                    Forgot Password?
-                </a>
-
-            </div>
-
-            <button
-              type="submit"
-              className="w-1/2 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-medium font-semibold transition duration-200"
-              onClick={handlelogin}
-            >
-              Login
-            </button>
-          </form>
+              <button onClick={handlelogin}
+                className="w-1/4 py-3 bg-blue-500 text-white rounded-full font-semibold hover:bg-blue-600 transition">
+                Login
+              </button>
+            </form>
         </div>
     </div>
   </div>

@@ -8,6 +8,10 @@ import SelectDate from './pages/customer/SelectDate';
 import SelectSport from './pages/customer/SelectSport';
 import Home from './pages/customer/Home';
 import MyBookings from './pages/customer/MyBookings';
+import { AuthLogin } from './pages/AuthLogin';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminCustomers from './pages/admin/AdminCustomers'; 
+
 
 function App() {
 
@@ -24,6 +28,10 @@ function App() {
         <Route path="/selectSport" element={<SelectSport />} />
         <Route path="/home" element={<Home />} />
         <Route path="/seeBookings" element={<MyBookings />} />
+        <Route path="/admin" element={<AuthLogin />} />
+        <Route path="/manager" element={<AuthLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/customers" element={<AdminCustomers />} />
       </Routes>
     </Router>
     </>
