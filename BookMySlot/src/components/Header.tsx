@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { toast } from "sonner";
-import { useUser } from "../context/UserContext";
+// import { useUser } from "../context/UserContext";
+import Login from "../pages/customer/Login";
 
 
 const Header = () => {
-  const {user} = useUser();
+  // const {user} = useUser();
+  const [showLogin, setShowLogin] = useState(false);
 
 
   const navigate = useNavigate();
@@ -16,7 +19,7 @@ const Header = () => {
         onClick: () => {
           localStorage.removeItem("token");
           localStorage.removeItem("isLoggedIn");
-          navigate("/login");
+          navigate("/");
           toast.success("Logged out successfully!");
         }
       },
@@ -33,12 +36,12 @@ const Header = () => {
     <div className="w-full py-3 px-8 top-0 z-50">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between">
         
-        <div className="text-2xl font-bold text-[#22577E]">
+        <div className="text-2xl font-bold text-[#111317]">
           <span>BookMySlot</span>
         </div>
 
-        <div className="flex items-center gap-8">
-          {["Home", "About Us", "Contact", "Shop", "My Bookings"].map((link, idx) => (
+        <div className="flex items-center gap-12">
+          {["Home", "Shop", "My Bookings"].map((link, idx) => (
             <a
               key={idx}
               className="text-[15px] font-semibold text-[#111317] hover:text-[#22577E] transition duration-200 cursor-pointer"
@@ -64,13 +67,25 @@ const Header = () => {
             </button>
           ) : (
             <button
-              onClick={() => navigate("/login")}
-              className="px-6 py-2 bg-[#22577E] text-white font-semibold rounded-full hover:bg-[#1d4c63] transition"
+              onClick={() =>setShowLogin(true)}
+              className="px-12 py-2 bg-[#22577E] text-white font-semibold rounded-full hover:bg-[#1d4c63] transition"
             >
               Login
             </button>
           )}
         </div>
+        {showLogin && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+              <button
+                className="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl"
+                onClick={() => setShowLogin(false)}
+              >
+                &times;
+              </button>
+              <Login onLoginSuccess={() => setShowLogin(false)} />
+          </div>
+    )}
+
       </div>
     </div>
 

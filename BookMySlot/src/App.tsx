@@ -1,7 +1,6 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'sonner';
-import Login from './pages/customer/Login';
 import Register from './pages/customer/Register';
 import SelectCourt from './pages/customer/SelectCourt';
 import SelectDate from './pages/customer/SelectDate';
@@ -20,9 +19,8 @@ function App() {
     <Toaster richColors position="top-center" closeButton={false} />
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/selectCourt" element={<SelectCourt />} />
         <Route path="/selectDate" element={<SelectDate />} />
         <Route path="/selectSport" element={<SelectSport />} />
