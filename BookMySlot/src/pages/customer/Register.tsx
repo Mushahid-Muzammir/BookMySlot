@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { register } from "../../services/authService";
-
+import registerPic from "../../assets/register.jpg"
 
 const Register = () => {
 const [name, setName] = useState("");
@@ -32,44 +32,41 @@ const handleRegister = async (e: React.FormEvent) => {
 };
 
   return (
-      <div className="w-full h-[720px] flex items-center justify-center bg-[#f3f3f3]">
-        <div className="flex flex-row w-[60%] h-[80%] rounded-[20px] bg-white border border-[#cfcfcf] p-6">
-          <div className="flex-1 flex items-center justify-center">
+      <div className="w-full h-screen flex items-center justify-center overflow-hidden">
+        <div className="flex gap-4 bg-white">
+          <div className="flex-1/2 flex items-center justify-center">
             <img
-              src="images/loginPic.jpg"
-              className="w-full h-[95%] max-w-[350px] rounded-[20px]"
-              alt="Salon Welcome Image"
+              src={registerPic}
+              className="w-full object-fit" 
+              alt=""
             />
           </div>
-          <div className="flex-1 flex flex-col justify-center">
-            <h1 className="text-[25px] font-bold text-black text-center">Join with us!</h1>
+          <div className="flex-1/3 flex flex-col justify-center p-8">
+            <h1 className="text-[25px] font-semibold text-black mb-8 text-center">Create Your Account</h1>
             <form onSubmit={handleRegister} className="flex flex-col gap-3">       
-              <label>Name</label>
               <input
                       type="text"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required
-                      placeholder="Enter your full name"
-                      className="w-full px-6 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 outline-none"
+                      placeholder="Name"
+                      className="px-6 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 outline-none"
                     />
-              <label>Email</label>
               <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required                    
-                      placeholder="you@example.com"
-                      className="w-full px-6 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 outline-none"
+                      placeholder="Email"
+                      className="px-6 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 outline-none"
                     />
-              <label>Password</label>
               <input
                       type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
-                      placeholder="••••••••"
-                      className="w-full px-6 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 outline-none"
+                      placeholder="Password"
+                      className="px-6 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 outline-none"
                     />
                     {error && <p className="text-red-500">{error}</p>}
 
@@ -81,7 +78,7 @@ const handleRegister = async (e: React.FormEvent) => {
 
             <div className="mx-6 text-sm mt-3 items-center text-center">
               <span>Already have an account?</span>
-              <a onClick={() => navigate("/login")} className="mx-2 text-blue-500 cursor-pointer">Sign In</a>
+              <a onClick={() => navigate("/home")} className="mx-2 text-blue-500 cursor-pointer">Sign In</a>
             </div>
           </div>
         </div>

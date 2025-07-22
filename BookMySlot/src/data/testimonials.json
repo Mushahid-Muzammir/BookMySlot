@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Ayaan Fernando",
+        "role": "Indoor Football Player",
+        "text": "Booking a court has never been this easy. I love how quick and reliable BookMySlot is!",
+        "image": "/assets/users/user1.jpg"
+    },
+    {
+        "name": "Shanaya Perera",
+        "role": "Badminton Enthusiast",
+        "text": "Everything from the UI to the actual booking flow is top-notch. Highly recommended!",
+        "image": "/assets/users/user2.jpg"
+    },
+    {
+        "name": "Tharusha Jayasinghe",
+        "role": "Student & Weekend Player",
+        "text": "BookMySlot saves me time and ensures I always get a slot when I want to play!",
+        "image": "/assets/users/user3.jpg"
+    },
+    {
+        "name": "Shanaya Perera",
+        "role": "Badminton Enthusiast",
+        "text": "Everything from the UI to the actual booking flow is top-notch. Highly recommended!",
+        "image": "/assets/users/user2.jpg"
+    },
+    {
+        "name": "Tharusha Jayasinghe",
+        "role": "Student & Weekend Player",
+        "text": "BookMySlot saves me time and ensures I always get a slot when I want to play!",
+        "image": "/assets/users/user3.jpg"
+    }
+]

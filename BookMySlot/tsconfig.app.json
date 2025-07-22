@@ -6,6 +6,12 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": [
+      "node",
+      "jest",
+      "vitest/globals",
+      "vitest/importMeta"
+    ],// Type definitions for Node.js, Jest, and Vitest
 
     /* Bundler mode */
     "moduleResolution": "bundler",

@@ -36,15 +36,15 @@ const Header = () => {
     <div className="w-full py-3 px-8 top-0 z-50">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between">
         
-        <div className="text-2xl font-bold text-[#111317]">
-          <span>BookMySlot</span>
+        <div className="text-2xl font-bold text-white">
+          <span>BOOKMYSLOT</span>
         </div>
 
         <div className="flex items-center gap-12">
-          {["Home", "Shop", "My Bookings"].map((link, idx) => (
+          {["Home", "Shop Now", "Bookings"].map((link, idx) => (
             <a
               key={idx}
-              className="text-[15px] font-semibold text-[#111317] hover:text-[#22577E] transition duration-200 cursor-pointer"
+              className="text-[16px] font-medium text-white hover:text-[#22577E] transition duration-200 cursor-pointer"
             >
               {link}
             </a>
@@ -68,7 +68,7 @@ const Header = () => {
           ) : (
             <button
               onClick={() =>setShowLogin(true)}
-              className="px-12 py-2 bg-[#22577E] text-white font-semibold rounded-full hover:bg-[#1d4c63] transition"
+              className="px-12 py-3 bg-[#111317] text-white font-semibold rounded-full border border-white shadow-md hover:bg-[#22577E] transition"
             >
               Login
             </button>

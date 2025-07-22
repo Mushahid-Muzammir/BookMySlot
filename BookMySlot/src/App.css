@@ -4,3 +4,17 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+
+@keyframes fadeBg {
+  0% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.bg-fade {
+  animation: fadeBg 1.5s ease-out forwards;
+}
