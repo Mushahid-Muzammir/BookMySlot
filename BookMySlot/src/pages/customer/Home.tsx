@@ -55,7 +55,7 @@ const Home = () => {
     //     }),
     // };
   return (
-        <div className="w-full h-[auto] bg-[#000000]">
+        <div className="w-full h-[auto] bg-gradient-to-r from-[#111327] to-[#000000]">
             <motion.div
             initial={{ opacity: 0, scale: 0.95, filter: "brightness(0.4)" }}
             animate={{ opacity: 1, scale: 1, filter: "brightness(1)" }}
@@ -92,7 +92,7 @@ const Home = () => {
                 </div>
             </motion.div>
 
-            <div id="heroSection" className="w-full py-24 px-6 bg-gradient-to-b from-[#111317] to-[#000000]">
+            <div id="heroSection" className="w-full py-24 px-6 ">
                 <div className="max-w-4xl mx-auto flex flex-col items-center text-center space-y-6">
     
                 <motion.h1
@@ -231,7 +231,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <section className="w-full bg-black py-20 px-6">
+            <section className="w-full py-20 px-6">
                 <div className=" mx-auto text-center">
                     <motion.h2
                     className="text-4xl md:text-5xl font-bold text-white mb-4"

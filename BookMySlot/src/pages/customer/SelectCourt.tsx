@@ -12,6 +12,7 @@ const SelectCourt = () => {
   const [loading, setLoading] = useState(true);
   const [searchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
 
   const navigate = useNavigate();
   const sportId = parseInt(searchParams.get("sportId") || "0", 10);
@@ -19,14 +20,14 @@ const SelectCourt = () => {
   const customStyles = {
     control: (base: any) => ({
       ...base,
-      backgroundColor: "#FFFFFF",
       borderRadius: "15px",
-      padding: "3px",
+      padding: "5px",
       fontSize: "13px",
-      fontWeight: "semibold",
+      fontWeight: "bold",
       boxShadow: "none",
       width: "250px",
-      textColor: "black"
+      color: "#ffffff",
+      
     }),
     menu: (base: any) => ({
       ...base,
@@ -41,7 +42,19 @@ const SelectCourt = () => {
     { value: "year", label: "Current Year" },
   ];
 
+    const cities = [
+    { value: "kurunegala", label: "Kurunegala" },
+    { value: "matara", label: "Matara" },
+    { value: "jaffna", label: "Jaffna" },
+    { value: "galle", label: "Galle" },
+    { value: "colombo", label: "Colombo" },
+    { value: "matale", label: "Matale" },
+    { value: "kandy", label: "Kandy" },
+    { value: "ampara", label: "Ampara" },
+  ];
+
   useEffect(() => {
+    
     if (sportId) {
       getCourtBySportId(sportId)
         .then((res) => {
@@ -58,51 +71,52 @@ const SelectCourt = () => {
   const filteredCourts = useMemo( () => {
     let filtered = courts;
 
-    if(searchTerm){
-      filtered = filtered.filter(item =>
-        item.name?.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
+    filtered = filtered
+  .filter(item =>
+    !searchTerm || item.name?.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+  .filter(item =>
+    !selectedCity || item.location?.toLowerCase().includes(selectedCity.toLowerCase())
+  );
     return filtered;
-  }, [courts, searchTerm]);
+  }, [courts, searchTerm, selectedCity]);
 
   return (
-    <div className="w-full min-h-screen bg-white">
+    <div className="w-full min-h-screen bg-gradient-to-r from-[#111327] to-[#000000] pb-6">
       <Header />
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="text-left mt-8 mb-6">
-          <p className="text-[#111317] text-[18px]">
+          <p className="text-white text-[18px]">
             Filter by location, rating, and price to find the perfect court for your game.
           </p>
         </div>
 
-        <div className="w-full flex flex-wrap justify-center md:justify-between gap-6 ">
-          <div className="flex flex-col gap-2">
-            <Select placeholder="Select Location" styles={customStyles} options={filterOptions}/>
+        <div className="w-full flex flex-wrap justify-center md:justify-between gap-6 mb-8">
+          <div className="relative w-[50%]">
+            <input
+              type="text"
+              className="w-full px-12 py-3 rounded-[15px] border border-[#6C6A61] focus:outline-none text-white placeholder:text-white"
+              placeholder="Search a court..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}/>
+            <img
+              src="/assets/search.svg"
+              alt="Search"
+              className="absolute left-3 top-1/2 w-5 h-5 transform -translate-y-1/2 border-none text-white invert"/>
           </div>
           <div className="flex flex-col gap-2">
-            <Select placeholder="Price" styles={customStyles} options={filterOptions} />
+            <Select<{ value: string; label: string }, false>
+              styles={customStyles}
+              options={cities}
+              value={cities.find(city => city.value === selectedCity) || null}
+              onChange={(usercity) => setSelectedCity(usercity ? usercity.value : "")}
+              isClearable
+            />
           </div>
           <div className="flex flex-col gap-2">
-            <Select placeholder="Rating" styles={customStyles} options={filterOptions} />
+            <Select placeholder="Price Range" styles={customStyles} options={filterOptions}  />
           </div>
         </div>
-
-        <div className="relative w-full my-4">
-        <input
-          type="text"
-          className="w-full px-12 py-2 rounded-[15px] border border-[#6C6A61] focus:outline-none"
-          placeholder="Search a court..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <img
-          src="/assets/search.svg"
-          alt="Search"
-          className="absolute left-3 top-1/2 w-5 h-5 transform -translate-y-1/2 opacity-60"
-        />
-      </div>
-
 
         <div>
           {loading ? (
@@ -110,33 +124,43 @@ const SelectCourt = () => {
               <p className="text-[#111317]">Loading courts...</p>
             </div>
           ) : (
-            <div className="flex flex-col gap-6">
-              {filteredCourts.map((court, index) => (
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredCourts.length > 0 ? filteredCourts.map((court, index) => (
                 <div
-                    key={index}
-                    onClick={() => navigate(`/selectDate?courtId=${court.courtId}`, {state: { sportId : sportId, courtPrice : court.price } })}
-                    className="h-auto flex flex-row justify-between bg-white border border-[#C1C7C6] rounded-[25px] hover:shadow-lg hover:scale-[1.01] transition-all overflow-hidden cursor-pointer">
-                    <div className="flex-1 pl-4 flex flex-col justify-center gap-1">
-                      <p className="text-lg font-semibold text-black">{court.name}</p>
-                      <p className="text-sm text-gray-500">{court.description}</p>
-                      <p className="text-sm text-gray-500">• 112 Reviews</p>
-                      <div className="flex items-center gap-1">
-                        <img src="/assets/location.svg" alt="icon" className="w-4 h-4" />
-                        <p className="text-sm text-black">{court.location}</p>
-                      </div>
-                    </div>
+                  key={index}
+                  onClick={() =>
+                    navigate(`/selectDate?courtId=${court.courtId}`, {
+                      state: { sportId: sportId, courtPrice: court.price },
+                    })
+                  }
+                  className="bg-[#000111] rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-300"
+                >
+                  <img
+                    src={courtsImage}
+                    alt={court.name}
+                    className="w-full h-48 object-cover"
+                  />
 
-                    <div className="flex flex-col justify-between items-end p-3">
-                      <p className="text-md font-semibold text-black mb-2">Rs. {court.price} /hr</p>
-                      <img
-                        src={courtsImage}
-                        alt={court.name}
-                        className="w-32 h-24 object-cover rounded-r-xl"
-                      />
+                  <div className="flex flex-col justify-between p-4">
+                      <h3 className="text-xl font-semibold text-white">{court.name}</h3>
+                    <div className="flex items-center gap-2">
+                      {/* <img src="/assets/location.svg" alt="icon" className="w-5 h-5" /> */}
+                      <p className="text-blue-400 text-sm">{court.location}</p>
+                    </div>
+                    <div className="pt-2">
+                      <p className="text-white font-semibold mt-2">
+                        Rs. {court.price} /hr
+                      </p>
                     </div>
                   </div>
-              ))}
+                </div>
+              )) :(
+                <div>
+                  <p className="font-semibold text-white text-center">No courts found.</p>
+                </div>
+              ) }
             </div>
+
           )}
         </div>
       </div>

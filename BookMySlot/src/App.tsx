@@ -4,7 +4,6 @@ import { Toaster } from 'sonner';
 import Register from './pages/customer/Register';
 import SelectCourt from './pages/customer/SelectCourt';
 import SelectDate from './pages/customer/SelectDate';
-import SelectSport from './pages/customer/SelectSport';
 import Home from './pages/customer/Home';
 import MyBookings from './pages/customer/MyBookings';
 import { AuthLogin } from './pages/AuthLogin';
@@ -23,7 +22,6 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/selectCourt" element={<SelectCourt />} />
         <Route path="/selectDate" element={<SelectDate />} />
-        <Route path="/selectSport" element={<SelectSport />} />
         <Route path="/home" element={<Home />} />
         <Route path="/seeBookings" element={<MyBookings />} />
         <Route path="/admin" element={<AuthLogin />} />

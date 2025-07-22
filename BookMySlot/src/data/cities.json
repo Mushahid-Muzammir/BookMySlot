@@ -1,0 +1,43 @@
+[
+    {
+        "city": "Colombo" 
+    }, 
+    {
+        "city": "Matale"
+    }, 
+    {
+        "city": "Ratnapura"
+    }, 
+    {
+        "city": "Negombo"
+    }, 
+    {
+        "city": "Kandy"
+    }, 
+    
+    {
+        "city": "Trincomalee"
+    }, 
+    {
+        "city": "Galle"
+    }, 
+    {
+        "city": "Jaffna"
+    },
+
+    {
+        "city": "Matara"
+    },
+    {
+        "city": "Puttalam"
+    }, 
+    {
+        "city": "Badulla"
+    }, 
+    {
+        "city": "Mannar"
+    }, 
+    {
+        "city": "Kurunegala"
+    }
+]
