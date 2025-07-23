@@ -88,7 +88,7 @@ const SelectDate = () => {
   }
 
   return (
-    <div className="max-w-full mx-auto">
+    <div className="max-w-full mx-auto h-auto bg-gradient-to-r from-[#111327] to-[#000000]">
       <div className="flex items-center mb-6">
         {loading ? (
           <p>Loading images...</p>
@@ -114,27 +114,27 @@ const SelectDate = () => {
       </div>
 
       <div  className="px-12">
-        <h1 className="text-xl text-center font-semibold mb-2">{court?.name}</h1>
+        <h1 className="text-xl text-center font-semibold mb-2 text-white">{court?.name}</h1>
         <div className="flex flex-wrap justify-between items-center mb-6">
           <div className="flex flex-wrap gap-6 mb-6">
             <div className="flex flex-col">
-              <label className="text-lg font-semibold mb-2">Pick a Date</label>
+              <label className="text-lg font-semibold mb-2 text-white">Pick a Date</label>
               <DatePicker
                 selected={date}
                 onChange={(d) => d && setDate(d)}
                 dateFormat="yyyy-MM-dd"
                 minDate={new Date()}
-                className="border p-2 rounded-md w-[200px]"
+                className="border p-2 rounded-md w-[200px] text-white"
               />
             </div>
 
             <div className="flex flex-col">
-              <label className="text-lg font-semibold mb-2">Slot Duration (min)</label>
+              <label className="text-lg font-semibold mb-2 text-white">Slot Duration (min)</label>
               <input
                 type="number"
                 value={duration}
                 onChange={(e) => setDuration(Number(e.target.value))}
-                className="border p-2 rounded-md w-[200px]"
+                className="border p-2 rounded-md w-[200px] text-white"
                 min={60}
                 max={240}
                 step={30}
@@ -143,19 +143,19 @@ const SelectDate = () => {
 
             <div className="flex items-end">
               <button
-                className="px-10 py-2 bg-[#111317] cursor-pointer text-white rounded-lg font-medium hover:bg-black"
+                className="px-10 py-2 bg-black cursor-pointer border border-white text-white rounded-full font-medium hover:bg-black"
                 onClick={() => fetchAvailableSlots()}>
                 Search
               </button>
             </div>
           </div>
           <div>
-            <p className="text-md font-semibold">Contact Us: 📞{court?.contactNumber}</p>
+            <p className="text-md font-semibold  text-white">Contact Us: 📞{court?.contactNumber}</p>
           </div>
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold mb-3">Available Time Slots on {date.toDateString()}</h3>
+          <h3 className="text-lg font-semibold mb-3 text-white">Available Time Slots on {date.toDateString()}</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mt-6">
             {slots.map((slot, index) => {
               const isSelected = slot.startTime === selectedSlot?.startTime && slot.endTime === selectedSlot?.endTime;
@@ -179,7 +179,7 @@ const SelectDate = () => {
         </div>
         <div className="w-full flex justify-center py-6">
           {/* {selectedSlot && ( */}
-            <button className="py-3 px-8 rounded-lg text-white bg-[#111317] hover:bg-black cursor-pointer"
+            <button className="py-3 px-8 bg-black cursor-pointer border border-white text-white rounded-full font-medium"
             onClick={() => setOpenPopup(true)}>
               Confirm Booking
             </button>
