@@ -2,6 +2,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import Register from './pages/customer/Register';
+import Login from './pages/customer/Login';
 import SelectCourt from './pages/customer/SelectCourt';
 import SelectDate from './pages/customer/SelectDate';
 import Home from './pages/customer/Home';
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/selectCourt" element={<SelectCourt />} />
         <Route path="/selectDate" element={<SelectDate />} />
         <Route path="/home" element={<Home />} />

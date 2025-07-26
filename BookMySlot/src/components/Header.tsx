@@ -1,13 +1,10 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { toast } from "sonner";
 // import { useUser } from "../context/UserContext";
-import Login from "../pages/customer/Login";
 
 
 const Header = () => {
   // const {user} = useUser();
-  const [showLogin, setShowLogin] = useState(false);
 
 
   const navigate = useNavigate();
@@ -67,24 +64,13 @@ const Header = () => {
             </button>
           ) : (
             <button
-              onClick={() =>setShowLogin(true)}
+              onClick={() => navigate("/login")}
               className="px-12 py-3 bg-[#111317] text-white font-semibold rounded-full border border-white shadow-md hover:bg-[#22577E] transition"
             >
               Login
             </button>
           )}
         </div>
-        {showLogin && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-              <button
-                className="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl"
-                onClick={() => setShowLogin(false)}
-              >
-                &times;
-              </button>
-              <Login onLoginSuccess={() => setShowLogin(false)} />
-          </div>
-    )}
 
       </div>
     </div>

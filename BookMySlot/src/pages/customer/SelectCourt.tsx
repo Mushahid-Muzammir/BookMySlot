@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import type { Court } from "../../dataType";
 import Header from "../../components/Header";
-import courtsImage from "../../assets/football2.jpg";
 import { getCourtBySportId } from "../../services/courtService";
 import Select from "react-select";
+import  CourtsCard from "../../components/CourtsCard";
 
 
 const SelectCourt = () => {
@@ -14,7 +14,6 @@ const SelectCourt = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
 
-  const navigate = useNavigate();
   const sportId = parseInt(searchParams.get("sportId") || "0", 10);
 
   const customStyles = {
@@ -36,10 +35,9 @@ const SelectCourt = () => {
   };
 
   const filterOptions = [
-    { value: "daily", label: "Daily" },
-    { value: "month", label: "Current" },
-    { value: "last+month", label: "Last Month" },
-    { value: "year", label: "Current Year" },
+    { value: 2000, label: "<2000" },
+    { value: 3000, label: "2000 - 3000" },
+    { value: 4000, label: ">3000" },
   ];
 
     const cities = [
@@ -125,35 +123,8 @@ const SelectCourt = () => {
             </div>
           ) : (
            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredCourts.length > 0 ? filteredCourts.map((court, index) => (
-                <div
-                  key={index}
-                  onClick={() =>
-                    navigate(`/selectDate?courtId=${court.courtId}`, {
-                      state: { sportId: sportId, courtPrice: court.price },
-                    })
-                  }
-                  className="bg-[#000111] rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-300"
-                >
-                  <img
-                    src={courtsImage}
-                    alt={court.name}
-                    className="w-full h-48 object-cover"
-                  />
-
-                  <div className="flex flex-col justify-between p-4">
-                      <h3 className="text-xl font-semibold text-white">{court.name}</h3>
-                    <div className="flex items-center gap-2">
-                      {/* <img src="/assets/location.svg" alt="icon" className="w-5 h-5" /> */}
-                      <p className="text-blue-400 text-sm">{court.location}</p>
-                    </div>
-                    <div className="pt-2">
-                      <p className="text-white font-semibold mt-2">
-                        Rs. {court.price} /hr
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              {filteredCourts.length > 0 ? filteredCourts.map((court) => (
+                <CourtsCard court={court} sportId={sportId} />
               )) :(
                 <div>
                   <p className="font-semibold text-white text-center">No courts found.</p>

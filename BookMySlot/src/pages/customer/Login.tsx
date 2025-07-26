@@ -4,10 +4,8 @@ import { login } from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 
-type LoginProps = {
-  onLoginSuccess: () => void;
-}
-const Login = ({onLoginSuccess} : LoginProps) => {
+
+const Login = () => {
 
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
@@ -27,7 +25,6 @@ const  handleLogin = async (e : React.FormEvent) => {
     toast.success("Login successful!", {
       duration: 3000,
     });  
-    onLoginSuccess();
   setTimeout(() => { navigate("/home") }, 1500); 
 
   }catch (error : any) {
@@ -37,10 +34,9 @@ const  handleLogin = async (e : React.FormEvent) => {
 }; 
 
   return (
-    <div className="w-[35%] min-h-screen flex items-center justify-center p-4">
-      <div className="flex flex-col md:flex-row w-full max-w-5xl bg-white rounded-2xl shadow-md overflow-hidden">
-    
-        <div className="flex-1 p-8 flex flex-col justify-center">
+    <div className="w-full min-h-screen flex items-center justify-center p-4">
+      <div className="w-full max-w-5xl bg-white rounded-2xl shadow-md overflow-hidden">   
+        <div className="p-8 flex flex-col justify-center">
           <h1 className="text-3xl font-bold text-gray-800 text-center mb-2">
             Welcome Back
           </h1>
@@ -48,13 +44,13 @@ const  handleLogin = async (e : React.FormEvent) => {
             Connect with us to make your indoor bookings!
           </p>
 
-          <form onSubmit={handleLogin} className="flex flex-col gap-6 ">
+          <form onSubmit={handleLogin} className="flex flex-col gap-6 items-center ">
             <div>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
+                placeholder="Email"
                 className="w-full px-6 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 outline-none"
               />
             </div>
@@ -64,14 +60,14 @@ const  handleLogin = async (e : React.FormEvent) => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
+                placeholder="Password"
                 className="w-full px-6 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 outline-none"
               />
             </div>
 
             <div className="flex items-center justify-center gap-4">
               <button
-                className="w-[40%] py-3 px-8 bg-blue-500 text-white rounded-full font-semibold hover:bg-blue-600 transition">
+                className="w-full py-3 px-8 bg-blue-500 text-white rounded-full font-semibold hover:bg-blue-600 transition">
                 Login
               </button>
             </div>
@@ -99,19 +95,8 @@ const  handleLogin = async (e : React.FormEvent) => {
             </a>
           </div>
         </div>
-
-        {/* Image Section */}
-        {/* <div className="hidden md:flex md:flex-1 items-center justify-center bg-gray-100 p-4">
-          <img
-            src="/images/loginPic.jpg"
-            className="rounded-2xl max-h-[500px] object-cover"
-            alt="Stadium Booking"
-          />
-        </div> */}
     </div>
   </div>
-
-
   )
 }
 

@@ -17,6 +17,13 @@ export interface RegisterForm {
   password: string;
 }
 
+export type Testimonial = {
+  image: string;
+  name: string;
+  role: string;
+  text: string;
+}
+
 export type Sport = {
   sportId: number;
   name: string;

@@ -78,7 +78,7 @@ const handleRegister = async (e: React.FormEvent) => {
 
             <div className="mx-6 text-sm mt-3 items-center text-center">
               <span>Already have an account?</span>
-              <a onClick={() => navigate("/home")} className="mx-2 text-blue-500 cursor-pointer">Sign In</a>
+              <a onClick={() => navigate("/login")} className="mx-2 text-blue-500 cursor-pointer">Sign In</a>
             </div>
           </div>
         </div>
