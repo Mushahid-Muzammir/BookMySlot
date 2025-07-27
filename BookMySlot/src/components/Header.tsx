@@ -58,7 +58,7 @@ const Header = () => {
           {isLoggedIn ? (
             <button
               onClick={handleLogout}
-              className="px-12 py-2 border border-[#22577E] text-[#111317] font-semibold  hover:bg-[#22577E] hover:text-white transition"
+              className="px-12 py-2 border border-white text-white font-semibold  hover:bg-[#22577E] hover:text-white transition"
             >
               Logout
             </button>
