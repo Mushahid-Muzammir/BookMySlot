@@ -108,6 +108,7 @@ const SelectCourt = () => {
               options={cities}
               value={cities.find(city => city.value === selectedCity) || null}
               onChange={(usercity) => setSelectedCity(usercity ? usercity.value : "")}
+              placeholder="Select Location"
               isClearable
             />
           </div>

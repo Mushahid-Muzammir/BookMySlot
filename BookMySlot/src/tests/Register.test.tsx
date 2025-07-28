@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import '@testing-library/jest-dom';
 import { BrowserRouter } from "react-router-dom";
 import Register from "../pages/customer/Register";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { register } from "../services/authService";
 
 vi.mock("../services/authService", () => (
@@ -15,10 +15,10 @@ describe("Register Component", () => {
 
     const renderRegister = () => {
         render(
-        <BrowserRouter>
-            <Register/>
-        </BrowserRouter>        
-    )
+            <BrowserRouter>
+                <Register/>
+            </BrowserRouter>        
+        )
     }
 
     it("should contain a text as Create Account", () => {
@@ -48,7 +48,7 @@ describe("Register Component", () => {
         expect(passwordInput).toHaveValue("1234567")
     })
 
-     it('Should call register service and navigate to login page', () => {
+     it('Should call register service and navigate to login page', async () => {
         const mockUser = { name : "Mushahid", email : "test@gmail.com", password : "12345678"};
         (register as any).mockResolvedValueOnce(mockUser);
         renderRegister();
@@ -56,7 +56,12 @@ describe("Register Component", () => {
         fireEvent.change(screen.getByPlaceholderText("Name"), { target : {value : "Mushahid" }});
         fireEvent.change(screen.getByPlaceholderText("Email"), { target : {value : "test@gmail.com" }});
         fireEvent.change(screen.getByPlaceholderText("Password"), { target : {value : "1234567" }});
+        fireEvent.click(screen.getByRole("button", { name : "Sign Up" }));
 
-        
+        await waitFor( () => {
+            expect(register).toHaveBeenCalledWith("Mushahid", "test@gmail.com", "1234567");
+            expect(globalThis.mockNavigate).toHaveBeenCalledWith("/login");
+        })
+     
     })
 });

@@ -20,10 +20,7 @@ const handleRegister = async (e: React.FormEvent) => {
     toast.success("Registration successful! Now Please Login.", {
       duration: 1500,
     });
-
-    setTimeout(() => {
-          navigate("/home");
-        }, 2000);  
+    navigate("/login");
 
       }catch (error : any) {
     setError(error.response?.data?.message);
