@@ -10,6 +10,9 @@ import MyBookings from './pages/customer/MyBookings';
 import { AuthLogin } from './pages/AuthLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminCustomers from './pages/admin/AdminCustomers'; 
+import AdminReports from './pages/admin/AdminReports';
+import AdminExpenses from './pages/admin/AdminExpenses';
+import AdminBookings from './pages/admin/AdminBookings';
 
 
 function App() {
@@ -30,6 +33,9 @@ function App() {
         <Route path="/manager" element={<AuthLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/customers" element={<AdminCustomers />} />
+        <Route path="/admin/reports" element={<AdminReports />} />
+        <Route path="/admin/expenses" element={<AdminExpenses />} />
+        <Route path="/admin/bookings" element={<AdminBookings />} />
       </Routes>
     </Router>
     </>

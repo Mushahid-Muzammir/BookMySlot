@@ -1,4 +1,6 @@
 import {useState} from 'react'
+import { Topbar } from '../../components/Topbar';
+import AdminSidebar from '../../components/AdminSidebar';
 
 const AdminCustomers = () => {
 
@@ -35,69 +37,80 @@ const AdminCustomers = () => {
                 View Customer
             </button>
             ) }];
+            
     const handleCustomer = () => {}
-
    
   return (
-<div>
-      <table className="w-full mt-6 rounded-[30px] bg-white">
-        <thead>
-          <tr>
-            {columns.map((col, idx) => (
-              <th key={idx} className="py-4 font-semibold border-b">{col.header}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-            {currentPageData.map((customer, idx) => (
-                <tr key={idx} className="hover:bg-gray-100">
-                    <td className="py-4 px-2 border-b">
-                    {customer.id}
-                    </td>
-                    <td className="py-4 px-2 border-b">
-                    {customer.name}
-                    </td>
-                    <td className="py-4 px-2 border-b">
-                    {customer.phone}
-                    </td>
-                    <td className="py-4 px-2 border-b">
-                    {customer.totalVisit}
-                    </td>
-                    <td className="py-4 px-2 border-b">
-                    {customer.totalVisit}
-                    </td>
-                    <td className="py-4 px-2 border-b">
-                    {customer.action}
-                    </td>
-                    
-                </tr>
-            ))}
-        </tbody>
-      </table>
+      <div className="flex flex-row">
+            <AdminSidebar />
+            <div className="flex flex-col w-screen h-screen ">
+                <Topbar />
+                    <div className='flex flex-col w-full h-full p-6 bg-gray-100'>
+                      <h1 className="text-xl font-semibold mb-4">Customers</h1>
+                      <table className="w-full mt-6 bg-white">
+                        <thead className='bg-gray-200'>
+                          <tr>
+                            {columns.map((col, idx) => (
+                              <th key={idx} className="py-4 font-semibold">{col.header}</th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {currentPageData.map((customer, idx) => (
+                                <tr key={idx} className="hover:bg-gray-100">
+                                    <td className="py-4 px-10 border-b border-gray-200">
+                                    {customer.id}
+                                    </td>
+                                    <td className="py-4 px-10 border-b border-gray-200">
+                                    {customer.name}
+                                    </td>
+                                    <td className="py-4 px-10 border-b border-gray-200">
+                                    {customer.phone}
+                                    </td>
+                                    <td className="py-4 px-10 border-b border-gray-200">
+                                    {customer.totalVisit}
+                                    </td>
+                                    <td className="py-4 px-10 border-b border-gray-200">
+                                    {customer.lastVisit}
+                                    </td>
+                                    <td className="py-4 px-10 border-b border-gray-200">
+                                    {customer.loyaltyPoints}
+                                    </td>
+                                    <td className="py-4 px-10 border-b border-gray-200">
+                                    {customer.action}
+                                    </td>
+                                    
+                                </tr>
+                            ))}
+                        </tbody>
+                      </table>
 
-      <div className="flex justify-end items-center space-x-2 mt-4">
-        <button className="px-3 py-1 text-sm rounded-full text-gray-700 hover:bg-blue-500 hover:text-white"
-          onClick={handlePrev}
-          disabled={currentPage === 1}>
-          &lt;
-        </button>
-        {[...Array(totalPages)].map((_, idx) => (
-          <button
-            key={idx}
-            className={`px-3 py-1 text-sm rounded-full border ${currentPage === idx + 1 ? 'bg-blue-500 text-white' : 'text-gray-700'} hover:bg-blue-500 hover:text-white`}
-            onClick={() => setCurrentPage(idx + 1)}>
-            {idx + 1}
-          </button>
-        ))}
+                      <div className="flex justify-end items-center space-x-2 mt-4">
+                        <button className="px-3 py-1 text-sm rounded-full text-gray-700 hover:bg-blue-500 hover:text-white"
+                          onClick={handlePrev}
+                          disabled={currentPage === 1}>
+                          &lt;
+                        </button>
+                        {[...Array(totalPages)].map((_, idx) => (
+                          <button
+                            key={idx}
+                            className={`px-3 py-1 text-sm rounded-full border ${currentPage === idx + 1 ? 'bg-blue-500 text-white' : 'text-gray-700'} hover:bg-blue-500 hover:text-white`}
+                            onClick={() => setCurrentPage(idx + 1)}>
+                            {idx + 1}
+                          </button>
+                        ))}
 
-        <button
-          className="px-3 py-1 text-sm rounded-full text-gray-700 hover:bg-blue-500 hover:text-white"
-          onClick={handleNext}
-          disabled={currentPage === totalPages}>
-          &gt;
-        </button>
-      </div>
-    </div>   )
+                        <button
+                          className="px-3 py-1 text-sm rounded-full text-gray-700 hover:bg-blue-500 hover:text-white"
+                          onClick={handleNext}
+                          disabled={currentPage === totalPages}>
+                          &gt;
+                        </button>
+                      </div>
+                    </div> 
+            </div>
+        </div>  
+          )
 }
 
 export default AdminCustomers
