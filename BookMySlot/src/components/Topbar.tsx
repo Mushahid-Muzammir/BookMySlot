@@ -9,7 +9,7 @@ export const Topbar = () => {
                    <div className="">{}</div>  
                    <div className="">{}</div>
                 </div>
-                <div className="justify-center items-center flex m-3 mt-2 ml-1">
+                <div className="justify-center items-center flex mt-2 ml-1">
                     <img  alt="profile" className="w-12 h-12 rounded-full object-cover" />
                 </div>
             </div>           
