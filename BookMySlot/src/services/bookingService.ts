@@ -9,3 +9,12 @@ export const createBooking = async (bookingData: any) => {
   }
 };
 
+export const getTodayBookings = async () => {
+   try{
+    const response = await api.get("/bookings");
+    return response.data;
+   }catch(error){
+    console.error("Error fetching today's bookings", error);
+   }
+}
+

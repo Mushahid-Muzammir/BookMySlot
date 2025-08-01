@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Topbar } from '../../components/Topbar';
 import AdminSidebar from '../../components/AdminSidebar';
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
+import { getTodayBookings } from '../../services/bookingService';
+import type { Booking } from '../../dataType';
 
 const AdminDashboard = () => {
 
@@ -40,12 +42,31 @@ const AdminDashboard = () => {
             "day": "July 30"
           }
         ];
+
+
         const [currentPage, setCurrentPage] = useState(1);
+        const [todayBookings, setTodayBookings] = useState<Booking[]>([]);
         const rowsPerPage = 3;
         const totalPages = Math.ceil(customers.length / rowsPerPage);
         const indexOfLastRow = currentPage * rowsPerPage;
         const indexOfFirstRow = indexOfLastRow - rowsPerPage;
         const currentPageData = customers.slice(indexOfFirstRow, indexOfLastRow);
+
+        useEffect( () => {
+          const fetchTodayBookings = async () => {
+            try{
+              const response = await getTodayBookings();
+              if(response) {
+                setTodayBookings(response);
+                console.log("Today's Bookings: ", response);
+              }
+            }catch(error){
+              console.error("Error fetching today's bookings", error);
+            }
+          }
+          fetchTodayBookings();
+        }, []);
+
         
           const handlePrev = () => {
             if (currentPage > 1) setCurrentPage(currentPage - 1);
@@ -78,7 +99,7 @@ const AdminDashboard = () => {
                                 <img src="/assets/bookings.svg" className='w-16 h-16 p-2 border-3 border-blue-400 rounded-[100%] bg-gray-200' />
                                 <h2 className="text-md font-medium px-2 text-gray-400">Today Bookings</h2>
                             </div>
-                            <p className="text-2xl font-bold mt-4 ml-4">15</p>
+                            <p className="text-2xl font-bold mt-4 ml-4">{todayBookings.length }</p>
                         </div>
                         <div className="flex flex-col w-3/12 h-auto bg-white p-4 rounded-xl border border-gray-200 ">
                             <div className='flex flex-row items-center'>
@@ -102,10 +123,9 @@ const AdminDashboard = () => {
                             <p className="text-2xl font-bold mt-4 ml-4">115</p>
                         </div>
                     </div>
-                    <div className='flex w-[95%] h-auto'>
-                      <div className='flex flex-col w-[70%] h-auto mx-3 bg-white rounded-lg border border-gray-200 '>
+                    <div className='flex w-[95%] h-auto mt-6'>
+                      <div className='flex flex-col w-[75%] h-[80%] mx-3 bg-white rounded-lg border border-gray-200 '>
                           <table className="w-full bg-white">
-                            <caption className="text-xl font-semibold text-gray-800 p-4">Todays' Bookings</caption>
                             <thead className='w-full px-5'>
                               <tr>
                                 {columns.map((col, idx) => (
@@ -114,25 +134,25 @@ const AdminDashboard = () => {
                               </tr>
                             </thead>
                             <tbody>
-                                {currentPageData.map((customer, idx) => (
+                                {todayBookings.map((booking, idx) => (
                                     <tr key={idx} className="hover:bg-gray-100">
                                         <td className="py-4 px-7 text-sm border-b border-gray-200">
-                                        {customer.id}
+                                        {booking.bookingId}
                                         </td>
                                         <td className="py-4 px-5 text-sm border-b border-gray-200">
-                                        {customer.name}
+                                        {booking.name}
                                         </td>
                                         <td className="py-4 px-5 text-sm border-b border-gray-200">
-                                        {customer.phone}
+                                        {booking.contact}
                                         </td>
                                         <td className="py-4 px-5 text-sm border-b border-gray-200">
-                                        {customer.startTime}
+                                        {booking.startTime}
                                         </td>
                                         <td className="py-4 px-5 text-sm border-b border-gray-200">
-                                        {customer.endTime}
+                                        {booking.endTime}
                                         </td>
                                         <td className="py-4 px-5 text-sm border-b border-gray-200">
-                                        {customer.sport}
+                                        {booking.sportName}
                                         </td>
                                                                       
                                     </tr>
@@ -163,26 +183,24 @@ const AdminDashboard = () => {
                         </div>
                       </div>   
 
-                      <ResponsiveContainer width={"50%"} height={300}>
+                      <ResponsiveContainer width={"40%"} height={300}>
                         <BarChart
                           title='Bookings by Day'
                           data={bookingDataByDay}
                           width={500}
                           height={300}
-                          style={{marginTop : '20px', marginLeft: '20px'}}>
-                          <XAxis name="Day" dataKey="day" fontSize={12} color='#000000'/>
-                          <YAxis name="Booking Count" fill='#000000' fontSize={12} />
+                          style={{ marginLeft: '20px'}}>
+                          <XAxis name="Recent Days" dataKey="day" fontSize={12} color='#000000' />
+                          <YAxis name="Booking Count" fill='#000000' fontSize={12} label={{ value: 'Bookings', position: 'insideLeft', angle: -90 }}/>
                           <Tooltip />
                           <Bar
                             dataKey="bookingCount"
-                            stroke="none"
                             fill="#296dd9"
                             barSize={40}
                           />
                           </BarChart>
                       </ResponsiveContainer>
                     </div>
-
                 </div>
             </div>
         </div>

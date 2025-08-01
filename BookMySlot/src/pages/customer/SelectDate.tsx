@@ -79,12 +79,16 @@ const SelectDate = () => {
   };
 
   const confirmBooking = async () => {
-    await createBooking(bookingData);
-    setSuccessPopup(true);
-    setOpenPopup(false);
-    setSelectedSlot(undefined);
-    setDate(new Date());
-
+    try{
+      await createBooking(bookingData);
+      console.log("Booking confirmed:", bookingData);
+      setSuccessPopup(true);
+      setOpenPopup(false);
+      setSelectedSlot(undefined);
+      setDate(new Date());
+    }catch(error) {
+      console.error("Error confirming booking:", error);
+    }
   }
 
   return (

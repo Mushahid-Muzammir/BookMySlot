@@ -54,11 +54,13 @@ export type AvailableSlots = {
 
 export type Booking = {
   courtId: number;
-  sportId: number;
-  playerId: number;
+  sportName: string;
+  name: string;
   date : Date,
   startTime : string,
   endTime : string, 
+  bookingId : number, 
+  contact : string, 
 };
 
 
