@@ -30,18 +30,18 @@ const Header = () => {
   }
 
   return (
-    <div className="w-full py-3 px-8 top-0 z-50">
-      <div className="max-w-screen-xl mx-auto flex items-center justify-between">
+    <div className="w-full py-5 px-8 top-0 z-50 shadow-md">
+      <div className="max-w-screen-xl mx-auto flex items-center justify-around">
         
-        <div className="text-2xl font-bold text-white">
-          <span>BOOKMYSLOT</span>
+        <div className="text-2xl font-semibold text-[#272727]">
+          <span><span className="text-3xl font-bold">BOOK</span>MYSLOT</span>
         </div>
 
         <div className="flex items-center gap-12">
-          {["Home", "Shop Now", "Bookings"].map((link, idx) => (
+          {["HOME", "SHOP NOW", "BOOKINGS"].map((link, idx) => (
             <a
               key={idx}
-              className="text-[16px] font-medium text-white hover:text-[#22577E] transition duration-200 cursor-pointer"
+              className="text-[19px] font-regular text-[#272727] hover:text-[#22577E] transition duration-200 cursor-pointer"
             >
               {link}
             </a>
@@ -58,14 +58,14 @@ const Header = () => {
           {isLoggedIn ? (
             <button
               onClick={handleLogout}
-              className="px-12 py-2 border border-white text-white font-semibold  hover:bg-[#22577E] hover:text-white transition"
+              className="px-12 py-4 bg-[#4F98CA] text-white font-medium hover:bg-[#22577E] hover:text-white transition"
             >
               Logout
             </button>
           ) : (
             <button
               onClick={() => navigate("/login")}
-              className="px-12 py-3 bg-[#111317] text-white font-semibold rounded-full border border-white shadow-md hover:bg-[#22577E] transition"
+              className="px-12 py-4 bg-[#4F98CA] text-white font-medium hover:bg-[#22577E] hover:text-white transition"
             >
               Login
             </button>

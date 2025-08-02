@@ -22,7 +22,7 @@ const SelectCourt = () => {
       borderRadius: "15px",
       padding: "5px",
       fontSize: "13px",
-      fontWeight: "bold",
+      fontWeight: "semibold",
       boxShadow: "none",
       width: "250px",
       color: "#ffffff",
@@ -80,12 +80,12 @@ const SelectCourt = () => {
   }, [courts, searchTerm, selectedCity]);
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-r from-[#111327] to-[#000000] pb-6">
+    <div className="w-full min-h-screen pb-6">
       <Header />
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-        <div className="text-left mt-8 mb-6">
-          <p className="text-white text-[18px]">
-            Filter by location, rating, and price to find the perfect court for your game.
+        <div className="text-left mt-8 my-8">
+          <p className="text-[#272727] text-[18px]">
+            Filter by location and price to find the perfect court for your game.
           </p>
         </div>
 
@@ -93,14 +93,14 @@ const SelectCourt = () => {
           <div className="relative w-[50%]">
             <input
               type="text"
-              className="w-full px-12 py-3 rounded-[15px] border border-[#6C6A61] focus:outline-none text-white placeholder:text-white"
+              className="w-full px-12 py-3 rounded-[15px] border border-[#6C6A61] focus:outline-none text-[#272727] placeholder:text-[#272727]"
               placeholder="Search a court..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}/>
             <img
               src="/assets/search.svg"
               alt="Search"
-              className="absolute left-3 top-1/2 w-5 h-5 transform -translate-y-1/2 border-none text-white invert"/>
+              className="absolute left-3 top-1/2 w-5 h-5 transform -translate-y-1/2 border-none text-[#272727] invert"/>
           </div>
           <div className="flex flex-col gap-2">
             <Select<{ value: string; label: string }, false>
@@ -123,7 +123,7 @@ const SelectCourt = () => {
               <p className="text-[#111317]">Loading courts...</p>
             </div>
           ) : (
-           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 space-y-8">
               {filteredCourts.length > 0 ? filteredCourts.map((court) => (
                 <CourtsCard court={court} sportId={sportId} />
               )) :(
