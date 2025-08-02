@@ -19,13 +19,13 @@ namespace BookMySlot.Controllers
         public async Task<string> CreateBooking([FromBody] CreateBookingDTO booking)
         {
             var createdBooking = await _repo.CreateBookingAsync(booking);
-            return createdBooking;
+            return createdBooking; 
         }
 
         [HttpGet]
-        public async Task<List<BookingsDTO>> GetTodayBookings()
+        public async Task<List<BookingsDTO>> GetTodayBookings(int userId)
         {
-            var bookings = await _repo.GetTodayBookings();
+            var bookings = await _repo.GetTodayBookings(userId);
             return bookings;
         }
 

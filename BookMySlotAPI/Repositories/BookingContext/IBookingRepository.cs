@@ -8,6 +8,6 @@ namespace BookMySlot.Repositories.BookingContext
     {
         Task<string> CreateBookingAsync( [FromBody] CreateBookingDTO booking);
 
-        Task<List<BookingsDTO>> GetTodayBookings();
+        Task<List<BookingsDTO>> GetTodayBookings(int userId);
     }
 }

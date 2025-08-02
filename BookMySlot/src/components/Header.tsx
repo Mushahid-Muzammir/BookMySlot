@@ -6,7 +6,6 @@ import { toast } from "sonner";
 const Header = () => {
   // const {user} = useUser();
 
-
   const navigate = useNavigate();
   var isLoggedIn = localStorage.getItem("isLoggedIn");
   const handleLogout = () => {
@@ -30,7 +29,7 @@ const Header = () => {
   }
 
   return (
-    <div className="w-full py-5 px-8 top-0 z-50 shadow-md">
+    <div className="w-full py-3 px-8 top-0 z-50 shadow-md">
       <div className="max-w-screen-xl mx-auto flex items-center justify-around">
         
         <div className="text-2xl font-semibold text-[#272727]">
@@ -41,7 +40,7 @@ const Header = () => {
           {["HOME", "SHOP NOW", "BOOKINGS"].map((link, idx) => (
             <a
               key={idx}
-              className="text-[19px] font-regular text-[#272727] hover:text-[#22577E] transition duration-200 cursor-pointer"
+              className="text-[16px] font-regular text-[#272727] hover:text-[#22577E] transition duration-200 cursor-pointer"
             >
               {link}
             </a>

@@ -63,7 +63,8 @@ namespace BookMySlot.Repositories.AuthContext
             {
                 Token = GeneratedToken,
                 UserId = user.UserId,
-                Name = user.Name
+                Name = user.Name,
+                Role = user.Role,
             });
         }
 

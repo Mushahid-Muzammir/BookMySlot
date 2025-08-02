@@ -9,9 +9,12 @@ export const createBooking = async (bookingData: any) => {
   }
 };
 
-export const getTodayBookings = async () => {
+export const getTodayBookings = async (userId : number) => {
    try{
-    const response = await api.get("/bookings");
+    const response = await api.get("/bookings", {
+      params:{
+        userId      }
+    });
     return response.data;
    }catch(error){
     console.error("Error fetching today's bookings", error);

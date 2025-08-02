@@ -18,14 +18,17 @@ const  handleLogin = async (e : React.FormEvent) => {
   e.preventDefault();
   try{
     const response = await login(email, password);
-    setUser(response)
-    console.log("Login response:", response);
-    localStorage.setItem("isLoggedIn", "true");
     setErrorMsg(""); 
-    toast.success("Login successful!", {
+    if(response.role === "player"){
+      setUser(response)
+      localStorage.setItem("isLoggedIn", "true");
+      toast.success("Login successful!", {
       duration: 3000,
-    });  
-  navigate("/home")
+    });
+      navigate("/home");
+    }else{
+      toast.error("Invalid Credentials!, Please try again.");
+    } 
   }catch (error : any) {
     setErrorMsg(error.response?.data?.message || "Login failed. Please try again.");
     toast.error("Login failed. Please check your credentials.");
@@ -34,7 +37,13 @@ const  handleLogin = async (e : React.FormEvent) => {
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-5xl bg-white rounded-2xl shadow-md overflow-hidden">   
+      <div className="w-full max-w-5xl bg-white rounded-2xl shadow-md overflow-hidden"> 
+        <div className="text-center mt-6 text-sm">
+            <span className="text-gray-600">You own a court?</span>
+            <a onClick={() => navigate("/admin")} className="text-blue-500 ml-1 hover:underline cursor-pointer">
+              login as a court owner
+            </a>
+          </div>  
         <div className="p-8 flex flex-col justify-center">
           <h1 className="text-3xl font-bold text-gray-800 text-center mb-2">
             Welcome Back

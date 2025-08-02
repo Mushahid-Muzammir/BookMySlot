@@ -4,13 +4,9 @@ import AdminSidebar from '../../components/AdminSidebar';
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
 import { getTodayBookings } from '../../services/bookingService';
 import type { Booking } from '../../dataType';
+import { useUser } from '../../context/UserContext';
 
 const AdminDashboard = () => {
-
-         const customers = [
-            { id: 24, name: 'John Doe', phone: '123-456-7890',  startTime: '10.00', endTime: '11.00', sport: 'Futsal', action: 'View' },
-            { id: 22, name: 'Jane Smith', phone: '987-654-3210',  startTime: '12.00', endTime: '13.00', sport: 'Cricket', action: 'View' },
-        ];
 
         const bookingDataByDay = [
           {
@@ -47,27 +43,29 @@ const AdminDashboard = () => {
         const [currentPage, setCurrentPage] = useState(1);
         const [todayBookings, setTodayBookings] = useState<Booking[]>([]);
         const rowsPerPage = 3;
-        const totalPages = Math.ceil(customers.length / rowsPerPage);
+        const totalPages = Math.ceil(todayBookings.length / rowsPerPage);
         const indexOfLastRow = currentPage * rowsPerPage;
         const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-        const currentPageData = customers.slice(indexOfFirstRow, indexOfLastRow);
+        const currentPageData = todayBookings.slice(indexOfFirstRow, indexOfLastRow);
+        const {user} = useUser();
 
         useEffect( () => {
           const fetchTodayBookings = async () => {
             try{
-              const response = await getTodayBookings();
-              if(response) {
-                setTodayBookings(response);
-                console.log("Today's Bookings: ", response);
+              if (user) {
+                const response = await getTodayBookings(user.userId);
+                if(response) {
+                  setTodayBookings(response);
+                  console.log("Today's Bookings: ", response);
+                }
               }
             }catch(error){
               console.error("Error fetching today's bookings", error);
             }
           }
           fetchTodayBookings();
-        }, []);
-
-        
+        }, [user]);
+       
           const handlePrev = () => {
             if (currentPage > 1) setCurrentPage(currentPage - 1);
           };

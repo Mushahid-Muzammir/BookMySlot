@@ -33,11 +33,36 @@ namespace BookMySlot.Repositories.BookingContext
             return "All Okay";
         }
 
-        public async Task<List<BookingsDTO>> GetTodayBookings()
+        public async Task<List<BookingsDTO>> GetTodayBookings(int userId)
         {
+            var courtAdmin = await _context.CourtAdmins
+                .Where(ca => ca.UserId == userId)
+                .Select(ca => new { ca.CourtId })
+                .FirstOrDefaultAsync();
+
+            if (courtAdmin == null)
+            {
+                throw new Exception("Court not found");
+            }
+            int courtId = courtAdmin.CourtId; // Extract the CourtId value
+
+
+            var courtPrice = await _context.CourtSports
+                .Where(cp => cp.CourtId == courtId)
+                .Select(cp => new { cp.Price })
+                .FirstOrDefaultAsync();
+
+            if (courtPrice == null)
+            {
+                throw new Exception("Court price not found");
+            }
+            decimal price = courtPrice.Price;
+
+
             DateOnly currentdate = DateOnly.FromDateTime(DateTime.Now);
             return await _context.Bookings
                 .Where(b => b.Date == currentdate)
+                .Where(b => b.CourtId == courtId) // Compare with the extracted CourtId
                 .Select(b => new BookingsDTO
                 {
                     BookingId = b.BookingId,
@@ -46,10 +71,9 @@ namespace BookMySlot.Repositories.BookingContext
                     EndTime = b.EndTime,
                     Date = b.Date,
                     SportName = b.Sport.Name,
-                    Contact = b.User.Email
-
+                    Contact = b.User.Email,
+                    Price = price,
                 }).ToListAsync();
-
         }
 
     }

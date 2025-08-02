@@ -32,5 +32,7 @@
 
         public TimeSpan EndTime { get; set; }
 
+        public decimal Price { get; set; }
+
     }
 }

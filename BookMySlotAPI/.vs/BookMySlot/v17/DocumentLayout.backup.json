@@ -47,8 +47,7 @@
               "ViewState": "AgIAABEAAAAAAAAAAAAswBgAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-02T04:28:27.871Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -61,8 +60,7 @@
               "ViewState": "AgIAABAAAAAAAAAAAAAQwCEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-02T04:26:26.407Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -78,8 +76,7 @@
               "RelativeToolTip": "Models\\CourtSport.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-01T01:47:37.382Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-01T01:47:37.382Z"
             },
             {
               "$type": "Document",
@@ -89,7 +86,7 @@
               "RelativeDocumentMoniker": "Repositories\\BookingContext\\IBookingRepository.cs",
               "ToolTip": "C:\\Projects\\BookMySlot\\BookMySlotAPI\\Repositories\\BookingContext\\IBookingRepository.cs",
               "RelativeToolTip": "Repositories\\BookingContext\\IBookingRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-02T17:08:44.883Z",
               "EditorCaption": ""
@@ -104,8 +101,7 @@
               "RelativeToolTip": "Repositories\\BookingContext\\BookingRepository.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAcwDEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-02T04:32:37.38Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-02T04:32:37.38Z"
             },
             {
               "$type": "Document",
@@ -117,8 +113,7 @@
               "RelativeToolTip": "Models\\Booking.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAgwBwAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-02T04:42:15.737Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-02T04:42:15.737Z"
             }
           ]
         }
