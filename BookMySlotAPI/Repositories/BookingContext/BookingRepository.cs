@@ -44,7 +44,7 @@ namespace BookMySlot.Repositories.BookingContext
             {
                 throw new Exception("Court not found");
             }
-            int courtId = courtAdmin.CourtId; // Extract the CourtId value
+            int courtId = courtAdmin.CourtId; 
 
 
             var courtPrice = await _context.CourtSports
@@ -62,7 +62,7 @@ namespace BookMySlot.Repositories.BookingContext
             DateOnly currentdate = DateOnly.FromDateTime(DateTime.Now);
             return await _context.Bookings
                 .Where(b => b.Date == currentdate)
-                .Where(b => b.CourtId == courtId) // Compare with the extracted CourtId
+                .Where(b => b.CourtId == courtId) 
                 .Select(b => new BookingsDTO
                 {
                     BookingId = b.BookingId,
@@ -74,6 +74,33 @@ namespace BookMySlot.Repositories.BookingContext
                     Contact = b.User.Email,
                     Price = price,
                 }).ToListAsync();
+        }
+
+        public async Task<List<BookingCountByDateDTO>> GetBookingCountByDate(int userId)
+        {
+            var courtAdmin = await _context.CourtAdmins
+                .Where(ca => ca.UserId == userId)
+                .Select(ca => new { ca.CourtId })
+                .FirstOrDefaultAsync();
+
+            if (courtAdmin == null)
+            {
+                throw new Exception("Court not found");
+            }
+            int courtId = courtAdmin.CourtId;
+
+            var bookingsWithDate = await _context.Bookings
+                .Where(b => b.CourtId == courtId)
+                .GroupBy(b => b.Date)
+                .Select(b => new BookingCountByDateDTO
+                {
+                    BookingCount = b.Count(),
+                    Date = b.Key
+                })
+                .OrderBy(b => b.Date)
+                .ToListAsync();
+            return bookingsWithDate;
+
         }
 
     }

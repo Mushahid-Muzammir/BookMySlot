@@ -13,11 +13,25 @@ export const getTodayBookings = async (userId : number) => {
    try{
     const response = await api.get("/bookings", {
       params:{
-        userId      }
+        userId      
+      }
     });
     return response.data;
    }catch(error){
     console.error("Error fetching today's bookings", error);
    }
+}
+
+export const getBookingCountByDate = async ( userId : number) => {
+  try{
+    const response = await api.get("bookings/bookingWithDate", {
+      params:{
+        userId
+      }
+    });
+    return response.data;
+  }catch(error){
+    console.error("Error fetching booking count by date", error);
+  }
 }
 

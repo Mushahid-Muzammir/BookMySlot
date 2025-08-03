@@ -29,5 +29,12 @@ namespace BookMySlot.Controllers
             return bookings;
         }
 
+        [HttpGet("bookingWithDate")]
+        public async Task<List<BookingCountByDateDTO>> GetBookingCountByDate(int userId)
+        {
+            var bookingsByDate = await _repo.GetBookingCountByDate(userId);
+            return bookingsByDate;
+        }
+
     }
 }

@@ -9,5 +9,8 @@ namespace BookMySlot.Repositories.BookingContext
         Task<string> CreateBookingAsync( [FromBody] CreateBookingDTO booking);
 
         Task<List<BookingsDTO>> GetTodayBookings(int userId);
+
+        Task<List<BookingCountByDateDTO>> GetBookingCountByDate(int userId);
+        
     }
 }

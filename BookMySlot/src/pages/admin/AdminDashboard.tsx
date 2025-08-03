@@ -2,86 +2,71 @@ import { useState, useEffect } from 'react';
 import { Topbar } from '../../components/Topbar';
 import AdminSidebar from '../../components/AdminSidebar';
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
-import { getTodayBookings } from '../../services/bookingService';
-import type { Booking } from '../../dataType';
+import { getTodayBookings, getBookingCountByDate } from '../../services/bookingService';
+import type { Booking, BookingCountByDate } from '../../dataType';
 import { useUser } from '../../context/UserContext';
 
 const AdminDashboard = () => {
 
-        const bookingDataByDay = [
-          {
-            "bookingCount": 12,
-            "day": "July 24"
-          },
-          {
-            "bookingCount": 14,
-            "day": "July 25"
-          },
-          {
-            "bookingCount": 17,
-            "day": "July 26"
-          },
-          {
-            "bookingCount": 13,
-            "day": "July 27"
-          },
-          {
-            "bookingCount": 10,
-            "day": "July 28"
-          },
-          {
-            "bookingCount": 13,
-            "day": "July 29"
-          },
-          {
-            "bookingCount": 8,
-            "day": "July 30"
+  const [currentPage, setCurrentPage] = useState(1);
+  const [todayBookings, setTodayBookings] = useState<Booking[]>([]);
+  const [revenue, setRevenue] = useState(0);
+  const [bookingCountWithDate, setBookingCountWithDate] = useState<BookingCountByDate[]>([]);
+  const rowsPerPage = 3;
+  const totalPages = Math.ceil(todayBookings.length / rowsPerPage);
+  const indexOfLastRow = currentPage * rowsPerPage;
+  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+  const currentPageData = todayBookings.slice(indexOfFirstRow, indexOfLastRow);
+  const {user} = useUser();
+
+  useEffect( () => {
+    const fetchTodayBookings = async () => {
+      try{
+        if (user) {
+          const response = await getTodayBookings(user.userId);
+          if(response) {
+            setTodayBookings(response);
+            setRevenue(response.reduce((acc : number, booking : any) => acc + booking.price, 0));
+            console.log("Today's revenue: ", revenue);
+            console.log("Today's Bookings: ", response);
           }
-        ];
-
-
-        const [currentPage, setCurrentPage] = useState(1);
-        const [todayBookings, setTodayBookings] = useState<Booking[]>([]);
-        const rowsPerPage = 3;
-        const totalPages = Math.ceil(todayBookings.length / rowsPerPage);
-        const indexOfLastRow = currentPage * rowsPerPage;
-        const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-        const currentPageData = todayBookings.slice(indexOfFirstRow, indexOfLastRow);
-        const {user} = useUser();
-
-        useEffect( () => {
-          const fetchTodayBookings = async () => {
-            try{
-              if (user) {
-                const response = await getTodayBookings(user.userId);
-                if(response) {
-                  setTodayBookings(response);
-                  console.log("Today's Bookings: ", response);
-                }
-              }
-            }catch(error){
-              console.error("Error fetching today's bookings", error);
-            }
+        }
+      }catch(error){
+        console.error("Error fetching today's bookings", error);
+      }
+    }
+    const fetchBookingCountByDate = async () => {
+      try{
+        if (user) {
+          const response = await getBookingCountByDate(user.userId);
+          if(response) {
+            setBookingCountWithDate(response);
+            console.log("Booking count by date: ", response);    
           }
-          fetchTodayBookings();
-        }, [user]);
-       
-          const handlePrev = () => {
-            if (currentPage > 1) setCurrentPage(currentPage - 1);
-          };
-        
-          const handleNext = () => {
-            if (currentPage < totalPages) setCurrentPage(currentPage + 1);
-          };
-    
-          const columns = [
-        { header: 'ID', accessor: 'id' },
-        { header: 'CUSTOMER', accessor: 'name' },
-        { header: 'PHONE', accessor: 'phone' },
-        { header: 'START', accessor: 'totalVisit' },
-        { header: 'END', accessor: 'lastVisit' },
-        { header: 'SPORT', accessor: 'loyaltyPoints' },
-        ];
+        }
+      }catch(error){
+        console.error("Error fetching booking count by date", error);
+      }
+    }
+    fetchBookingCountByDate();
+    fetchTodayBookings();
+  }, [user]);
+  
+    const handlePrev = () => {
+      if (currentPage > 1) setCurrentPage(currentPage - 1);
+    };
+  
+    const handleNext = () => {
+      if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+    };
+
+    const columns = [
+  { header: 'ID', accessor: 'id' },
+  { header: 'CUSTOMER', accessor: 'name' },
+  { header: 'PHONE', accessor: 'phone' },
+  { header: 'START', accessor: 'totalVisit' },
+  { header: 'END', accessor: 'lastVisit' },
+  ];
                 
   return (
     <>
@@ -104,7 +89,7 @@ const AdminDashboard = () => {
                                 <img src="/assets/price.svg" className='w-16 h-16 p-2 border-3 border-blue-400 rounded-[100%] bg-gray-200' />
                                 <h2 className="text-md font-medium px-2 text-gray-400">Today Revenue</h2>
                             </div>
-                            <p className="text-2xl font-bold mt-4 ml-4">Rs. 7500</p>
+                            <p className="text-2xl font-bold mt-4 ml-4">Rs. {revenue}</p>
                         </div>
                         <div className="flex flex-col w-3/12 h-auto bg-white p-4 rounded-xl border border-gray-200 ">
                             <div className='flex flex-row items-center'>
@@ -122,7 +107,7 @@ const AdminDashboard = () => {
                         </div>
                     </div>
                     <div className='flex w-[95%] h-auto mt-6'>
-                      <div className='flex flex-col w-[75%] h-[80%] mx-3 bg-white rounded-lg border border-gray-200 '>
+                      <div className='flex flex-col w-[90%] h-[80%] mx-5 bg-white rounded-lg border border-gray-200 '>
                           <table className="w-full bg-white">
                             <thead className='w-full px-5'>
                               <tr>
@@ -132,7 +117,7 @@ const AdminDashboard = () => {
                               </tr>
                             </thead>
                             <tbody>
-                                {todayBookings.map((booking, idx) => (
+                                {currentPageData.map((booking, idx) => (
                                     <tr key={idx} className="hover:bg-gray-100">
                                         <td className="py-4 px-7 text-sm border-b border-gray-200">
                                         {booking.bookingId}
@@ -148,9 +133,6 @@ const AdminDashboard = () => {
                                         </td>
                                         <td className="py-4 px-5 text-sm border-b border-gray-200">
                                         {booking.endTime}
-                                        </td>
-                                        <td className="py-4 px-5 text-sm border-b border-gray-200">
-                                        {booking.sportName}
                                         </td>
                                                                       
                                     </tr>
@@ -181,23 +163,29 @@ const AdminDashboard = () => {
                         </div>
                       </div>   
 
-                      <ResponsiveContainer width={"40%"} height={300}>
-                        <BarChart
-                          title='Bookings by Day'
-                          data={bookingDataByDay}
-                          width={500}
-                          height={300}
-                          style={{ marginLeft: '20px'}}>
-                          <XAxis name="Recent Days" dataKey="day" fontSize={12} color='#000000' />
-                          <YAxis name="Booking Count" fill='#000000' fontSize={12} label={{ value: 'Bookings', position: 'insideLeft', angle: -90 }}/>
-                          <Tooltip />
-                          <Bar
-                            dataKey="bookingCount"
-                            fill="#296dd9"
-                            barSize={40}
-                          />
-                          </BarChart>
-                      </ResponsiveContainer>
+                     <ResponsiveContainer width="100%" height={300}>
+                      <BarChart
+                        data={bookingCountWithDate}
+                        margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                        <XAxis
+                          dataKey="date"
+                          tick={{ fill: '#000', fontSize: 12 }}
+                          label={{ value: 'Date', position: 'insideBottom', offset: -5 }}
+                        />
+                        <YAxis
+                          tick={{ fill: '#000', fontSize: 12 }}
+                          label={{
+                            value: 'Bookings',
+                            angle: -90,
+                            position: 'insideLeft',
+                            fill: '#000',
+                            fontSize: 12,
+                          }}
+                        />
+                        <Tooltip />
+                        <Bar dataKey="bookingCount" fill="#296dd9" barSize={40} />
+                      </BarChart>
+                    </ResponsiveContainer>
                     </div>
                 </div>
             </div>

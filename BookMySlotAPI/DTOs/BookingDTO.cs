@@ -35,4 +35,11 @@
         public decimal Price { get; set; }
 
     }
+
+    public class BookingCountByDateDTO
+    {
+        public int BookingCount { get; set; }
+
+        public DateOnly Date { get; set; }
+    }
 }

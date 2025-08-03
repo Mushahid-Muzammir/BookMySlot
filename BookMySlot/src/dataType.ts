@@ -63,4 +63,9 @@ export type Booking = {
   contact : string, 
 };
 
+export type BookingCountByDate = {
+  date: string;
+  count: number;
+};
+
 
