@@ -36,5 +36,11 @@ namespace BookMySlot.Controllers
             return bookingsByDate;
         }
 
+        [HttpGet("bookingbyCourt")]
+        public async Task<List<BookingsDTO>> GetBookingsByCourt(int userId)
+        {
+            var bookingsByCourt = await _repo.GetBookingsByCourt(userId);
+            return bookingsByCourt;
+        }
     }
 }

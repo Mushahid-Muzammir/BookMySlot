@@ -35,3 +35,16 @@ export const getBookingCountByDate = async ( userId : number) => {
   }
 }
 
+export const getAllBookingsByCourt = async (userId : number) => {
+   try{
+    const response = await api.get("/bookings/bookingbyCourt", {
+      params:{
+        userId      
+      }
+    });
+    return response.data;
+   }catch(error){
+    console.error("Error fetching today's bookings", error);
+   }
+}
+

@@ -39,8 +39,8 @@ const  handleLogin = async (e : React.FormEvent) => {
     <div className="w-full min-h-screen flex items-center justify-center p-4">
       <div className="w-full max-w-5xl bg-white rounded-2xl shadow-md overflow-hidden"> 
         <div className="text-center mt-6 text-sm">
-            <span className="text-gray-600">You own a court?</span>
-            <a onClick={() => navigate("/admin")} className="text-blue-500 ml-1 hover:underline cursor-pointer">
+            <span className="text-lg text-gray-600 ">You own a court ?</span>
+            <a onClick={() => navigate("/admin")} className="text-blue-500 text-lg font-semibold ml-1 hover:underline cursor-pointer">
               login as a court owner
             </a>
           </div>  

@@ -56,11 +56,12 @@ export type Booking = {
   courtId: number;
   sportName: string;
   name: string;
-  date : Date,
+  date : string,
   startTime : string,
   endTime : string, 
   bookingId : number, 
   contact : string, 
+  sport : string, 
 };
 
 export type BookingCountByDate = {

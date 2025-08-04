@@ -11,6 +11,9 @@ namespace BookMySlot.Repositories.BookingContext
         Task<List<BookingsDTO>> GetTodayBookings(int userId);
 
         Task<List<BookingCountByDateDTO>> GetBookingCountByDate(int userId);
-        
+
+        Task<List<BookingsDTO>> GetBookingsByCourt(int userId);
+
+
     }
 }
